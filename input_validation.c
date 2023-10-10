@@ -9,9 +9,9 @@ bool input_validation(int argc, char **argv, Stack *stack_a)
 	if (!enough_arguments(argc))
 		return false;
 
-	while (argc != 1)
+	while (*++argv != NULL)
 	{
-		printf("%s\n", argv[--argc]);
+		printf("%s\n", *argv);
 	}
 
 	return (1);
