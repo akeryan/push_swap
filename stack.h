@@ -2,13 +2,16 @@
 #define STACK_H
 
 #include <stdbool.h>
+#include "stack.h"
 
-typedef struct Node {
+typedef struct Node
+{
 	int data;
 	struct Node *next;
 } Node;
 
-typedef struct Stack {
+typedef struct Stack
+{
 	Node *top;
 } Stack;
 

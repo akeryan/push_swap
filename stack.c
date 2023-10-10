@@ -3,31 +3,38 @@
 #include "libft.h"
 #include "stack.h"
 
-void initialize(Stack *stack) {
-	if(stack == NULL) {
-		printf("stack is null");
+void initialize(Stack *stack)
+{
+	if (stack == NULL)
+	{
+		fprintf(stderr, "Error (stack.c):stack is null");
 		exit(1);
 	}
 	stack->top = NULL;
 }
 
-bool isEmpty(Stack *stack) {
-	if(stack == NULL) {
-		printf("stack is null");
+bool isEmpty(Stack *stack)
+{
+	if (stack == NULL)
+	{
+		fprintf(stderr, "Error (stack.c): stack is null");
 		exit(1);
 	}
 	return (stack->top == NULL);
 }
 
-void push(Stack *stack, int value) {
-	if(stack == NULL) {
+void push(Stack *stack, int value)
+{
+	if (stack == NULL)
+	{
 		printf("stack is null");
 		exit(1);
 	}
 
 	Node *newNode = (Node *)malloc(sizeof(Node));
-	if(newNode == NULL) {
-		printf("Allocation for newNode failed\n");
+	if (newNode == NULL)
+	{
+		fprintf(stderr, "Error (stack.c): Allocation for newNode failed\n");
 		exit(1);
 	}
 
@@ -36,9 +43,11 @@ void push(Stack *stack, int value) {
 	stack->top = newNode;
 }
 
-int pop(Stack *stack) {
-	if(stack == NULL) {
-		printf("stack is null");
+int pop(Stack *stack)
+{
+	if (stack == NULL)
+	{
+		fprintf(stderr, "Error (stack.c): stack is null");
 		exit(1);
 	}
 
@@ -50,16 +59,19 @@ int pop(Stack *stack) {
 	return value;
 }
 
-int peek(Stack *stack) {
-	if(stack == NULL) {
-		printf("stack is null");
+int peek(Stack *stack)
+{
+	if (stack == NULL)
+	{
+		fprintf(stderr, "Error (stack.c): stack is null");
 		exit(1);
 	}
 
-	if(isEmpty(stack)) {
-		printf("Stack is empty\n");
+	if (isEmpty(stack))
+	{
+		fprintf(stderr, "Error (stack.c): Stack is empty\n");
 		exit(1);
 	}
 
-	return(stack->top->data);
+	return (stack->top->data);
 }
