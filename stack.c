@@ -10,7 +10,17 @@ void initialize(Stack *stack)
 	stack->top = NULL;
 }
 
-bool isEmpty(Stack *stack)
+void print_stack(Stack *stack) {
+	Node *current_node;
+
+	current_node = stack->top;
+	while(current_node != NULL) {
+		printf("%d\n", current_node->data);
+		current_node = current_node->next;
+	}
+}
+
+bool is_empty(Stack *stack)
 {
 	if (stack == NULL)
 	{
@@ -64,7 +74,7 @@ int peek(Stack *stack)
 		exit(1);
 	}
 
-	if (isEmpty(stack))
+	if (is_empty(stack))
 	{
 		fprintf(stderr, "Error (stack.c): Stack is empty\n");
 		exit(1);
