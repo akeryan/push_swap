@@ -6,5 +6,6 @@
 #include "input_validation.h"
 #include "libft.h"
 #include "stack.h"
+#include "utils.h"
 
 #endif
