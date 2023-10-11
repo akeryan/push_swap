@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include "stack.h"
-#include "libft.h"
-#include "input_validation.h"
+#include "push_swap.h"
 
 int main(int argc, char *argv[])
 {

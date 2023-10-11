@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include "libft.h"
-#include "stack.h"
+#include "push_swap.h"
 
 void initialize(Stack *stack)
 {
@@ -27,7 +24,7 @@ void push(Stack *stack, int value)
 {
 	if (stack == NULL)
 	{
-		printf("stack is null");
+		fprintf(stderr, "Error (stack.c): stack is null");
 		exit(1);
 	}
 
