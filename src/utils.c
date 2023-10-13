@@ -35,6 +35,5 @@ size_t	my_strlen(const char *str)
 
 	len += ft_strlen(str);
 
-	//printf("mylen is:%zu\n", len);
 	return (len);
 }
