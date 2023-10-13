@@ -2,8 +2,11 @@
 #include <stddef.h>
 #include "libft.h"
 
-/* my_strlen() first skips all the white spaces,
- * then skips '+' or '-' if present; in case if '-' it counts for part of string length;
+/* atoi_strlen() returns the length of the initial part of the string that is to be converted to int representation
+ * first skips all the white spaces,
+ * then skips '+' or '-' if present; 
+ * in case if '-' it counts for part of string length;
+ * '+' is valid but doesn't contribute to the lenght
  * then skips all the '0' if present (e.g. '-0004' is valid and equal to '-4');
  * then measure length of the remaining string with ft_strlen();
 */
@@ -32,6 +35,6 @@ size_t	my_strlen(const char *str)
 
 	len += ft_strlen(str);
 
-	printf("mylen is:%zu\n", len);
+	//printf("mylen is:%zu\n", len);
 	return (len);
 }
