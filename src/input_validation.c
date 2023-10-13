@@ -1,5 +1,5 @@
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 bool input_validation(int argc, char** argv, Stack* stack_a) {
 	char** arg;
@@ -21,7 +21,7 @@ bool input_validation(int argc, char** argv, Stack* stack_a) {
 	return (1);
 }
 
-int check_and_push(char** str, Stack* stack) {
+int check_and_push(char **str, Stack *stack) {
 	int push_candidate_number;
 
 	while (*str != NULL) {

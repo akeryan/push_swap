@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stddef.h>
-#include "libft.h"
+#include "../include/push_swap.h"
 
 /* atoi_strlen() returns the length of the initial part of the string that is to be converted to int representation
  * first skips all the white spaces,
