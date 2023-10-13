@@ -17,10 +17,8 @@ EXECUTABLE = $(BIN_DIR)/push_swap
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(OBJS) $(LIBFT_DIR)/libft.a
-	$(CC) $(FLAGS) -o $@ $(OBJS) libft/libft.a
-	
-#-L$(LIBFT_DIR) -lft
+$(EXECUTABLE): $(OBJS) 
+	$(CC) $(FLAGS) -o $@ $(OBJS) -L$(LIBFT_DIR) -lft
 	
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c| $(BUILD_DIR)

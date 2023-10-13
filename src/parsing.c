@@ -1,7 +1,7 @@
 
 #include "../include/push_swap.h"
 
-bool input_validation(int argc, char** argv, Stack* stack_a) {
+bool parsing(int argc, char** argv, Stack* stack_a) {
 	char** arg;
 	int i;
 

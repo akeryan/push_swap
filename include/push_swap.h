@@ -15,7 +15,7 @@ typedef struct Stack {
 } Stack;
 
 //input_validation.c
-bool input_validation(int argc, char **argv, Stack *stack_a);
+bool parsing(int argc, char **argv, Stack *stack_a);
 bool enough_arguments(int argc);
 int check_and_push(char **str, Stack *stack);
 
