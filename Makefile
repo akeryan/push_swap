@@ -15,14 +15,16 @@ OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
 #Executable name
 EXECUTABLE = $(BIN_DIR)/push_swap
 
-all: $(EXECUTABLE)
+all: libft_build $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJS) 
 	$(CC) $(FLAGS) -o $@ $(OBJS) -L$(LIBFT_DIR) -lft
-	
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c| $(BUILD_DIR)
 	$(CC) $(FLAGS) -I$(INCLUDE_DIR) -c -o $@ $<
+
+libft_build:
+	@$(MAKE) -C $(LIBFT_DIR)
 
 clean: 
 	rm -f $(OBJS)
