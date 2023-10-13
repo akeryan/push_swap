@@ -26,10 +26,12 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c| $(BUILD_DIR)
 libft_build:
 	@$(MAKE) -C $(LIBFT_DIR)
 
-clean: 
+clean:
+	make -C $(LIBFT_DIR) clean
 	rm -f $(OBJS)
 
 fclean: clean
+	make -C $(LIBFT_DIR) fclean
 	rm -f $(EXECUTABLE)
 
 re: clean all
