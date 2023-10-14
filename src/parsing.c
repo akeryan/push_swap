@@ -15,9 +15,6 @@ bool parsing(int argc, char** argv, Stack* stack_a) {
 		check_and_push(arg, stack_a);
 	}
 
-	printf("\nStack:\n");
-	print_stack(stack_a);
-
 	return (1);
 }
 

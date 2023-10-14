@@ -14,19 +14,28 @@ typedef struct Stack {
 	Node *top;
 } Stack;
 
+typedef struct Twix{
+	Stack stack_a;
+	Stack stack_b;
+} Twix;
+
 //input_validation.c
 bool parsing(int argc, char **argv, Stack *stack_a);
 bool enough_arguments(int argc);
 int check_and_push(char **str, Stack *stack);
 
 //stack.c
-void initialize(Stack *stack);
+void init_stack(Stack *stack);
 bool is_empty(Stack *stack);
 void print_stack(Stack *stack);
 void push(Stack *stack, int value);
 int pop(Stack *stack);
 int peek(Stack *stack);
 
+//ps_stack
+void init_twix(Twix *twix);
+int pb(Twix *twix);
+int pa(Twix *twix);
 //utils.c
 size_t	my_strlen(const char *str);
 

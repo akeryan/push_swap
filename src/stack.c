@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-void initialize(Stack *stack)
+void init_stack(Stack *stack)
 {
 	if (stack == NULL)
 	{
