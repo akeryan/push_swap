@@ -4,7 +4,7 @@ INCLUDE_DIR = include
 BUILD_DIR = build
 BIN_DIR = bin
 LIBFT_DIR = libft
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 
 #List of source files
 SRCS = $(wildcard $(SRC_DIR)/*.c)

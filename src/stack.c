@@ -2,9 +2,9 @@
 
 void init_stack(Stack *stack)
 {
-	if (stack == NULL)
+	if (!stack)
 	{
-		fprintf(stderr, "Error (stack.c):stack is null");
+		fprintf(stderr, "Error - init_stack(): stack is null");
 		exit(1);
 	}
 	stack->top = NULL;
@@ -22,9 +22,9 @@ void print_stack(Stack *stack) {
 
 bool is_empty(Stack *stack)
 {
-	if (stack == NULL)
+	if (!stack)
 	{
-		fprintf(stderr, "Error (stack.c): stack is null");
+		fprintf(stderr, "Error - is_empty(): stack is null");
 		exit(1);
 	}
 	return (stack->top == NULL);
@@ -34,14 +34,14 @@ void push(Stack *stack, int value)
 {
 	if (stack == NULL)
 	{
-		fprintf(stderr, "Error (stack.c): stack is null");
+		fprintf(stderr, "Error - push(): stack is null");
 		exit(1);
 	}
 
 	Node *newNode = (Node *)malloc(sizeof(Node));
 	if (newNode == NULL)
 	{
-		fprintf(stderr, "Error (stack.c): Allocation for newNode failed\n");
+		fprintf(stderr, "Error - push(): Allocation for new node failed\n");
 		exit(1);
 	}
 
@@ -54,7 +54,7 @@ int pop(Stack *stack)
 {
 	if (stack == NULL)
 	{
-		fprintf(stderr, "Error (stack.c): stack is null");
+		fprintf(stderr, "Error - pop(): stack is null");
 		exit(1);
 	}
 
@@ -70,13 +70,13 @@ int peek(Stack *stack)
 {
 	if (stack == NULL)
 	{
-		fprintf(stderr, "Error (stack.c): stack is null");
+		fprintf(stderr, "Error - peek(): stack is null");
 		exit(1);
 	}
 
 	if (is_empty(stack))
 	{
-		fprintf(stderr, "Error (stack.c): Stack is empty\n");
+		fprintf(stderr, "Error - peek(): Stack is empty\n");
 		exit(1);
 	}
 

@@ -35,8 +35,11 @@ int peek(Stack *stack);
 //Twix
 void init_twix(Twix *twix);
 int sa(Twix *twix);
+int sb(Twix *twix);
+int ss(Twix *twix);
 int pb(Twix *twix);
 int pa(Twix *twix);
+
 //utils.c
 size_t	my_strlen(const char *str);
 
