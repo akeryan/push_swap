@@ -5,21 +5,21 @@ void init_twix(Twix *twix) {
 		fprintf(stderr, "Error (twix.c): twix is NULL\n");
 		exit(1);
 	}
-	init_stack(&twix->stack_a);
-	init_stack(&twix->stack_b);
+	init_stack(&twix->a);
+	init_stack(&twix->b);
 }
 
 //sa (swap a): Swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.
-int sa(Stack *a) {
+int sa(Twix *twix) {
 	int temp;
 
-	if(!a)
+	if(!twix)
 		return (1);
 
-	if(!is_empty(a) || !(a->top->next)) {
-		temp = peek(a);
-		a->top->data = a->top->next->data;
-		a->top->next->data = temp;
+	if(!is_empty(&twix->a) || !(twix->a.top->next)) {
+		temp = peek(&twix->a);
+		twix->a.top->data = twix->a.top->next->data;
+		twix->a.top->next->data = temp;
 	}
 
 	return (0);
@@ -30,8 +30,8 @@ int pa(Twix *twix) {
 	if(!twix)
 		return(1);
 
-	if(!is_empty(&twix->stack_b))
-		push(&twix->stack_a, pop(&twix->stack_b));
+	if(!is_empty(&twix->b))
+		push(&twix->a, pop(&twix->b));
 
 	return (0);
 }
@@ -41,8 +41,8 @@ int pb(Twix *twix) {
 	if(!twix)
 		return(1);
 
-	if(!is_empty(&twix->stack_a))
-		push(&twix->stack_b, pop(&twix->stack_a));
+	if(!is_empty(&twix->a))
+		push(&twix->b, pop(&twix->a));
 
 	return (0);
 }

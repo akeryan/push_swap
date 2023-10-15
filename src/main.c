@@ -5,19 +5,20 @@ int main(int argc, char *argv[])
 	Twix twix;
 	init_twix(&twix);
 	
-	if (!parsing(argc, argv, &twix.stack_a))
+	if (!parsing(argc, argv, &twix.a))
 	{
 		fprintf(stderr, "Error (main.c): input data error\n");
 		return (1);
 	}
 	printf("Stack A\n");
-	print_stack(&twix.stack_a);
+	print_stack(&twix.a);
 
-	pb(&twix);
+//	pb(&twix);
+	sa(&twix);
 
 	printf("Stack A\n");
-	print_stack(&twix.stack_a);
-	printf("Stack B\n");
-	print_stack(&twix.stack_b);
+	print_stack(&twix.a);
+	//printf("Stack B\n");
+	//print_stack(&twix.b);
 	return (0);
 }

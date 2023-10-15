@@ -15,12 +15,12 @@ typedef struct Stack {
 } Stack;
 
 typedef struct Twix{
-	Stack stack_a;
-	Stack stack_b;
+	Stack a;
+	Stack b;
 } Twix;
 
 //input_validation.c
-bool parsing(int argc, char **argv, Stack *stack_a);
+bool parsing(int argc, char **argv, Stack *stack);
 bool enough_arguments(int argc);
 int check_and_push(char **str, Stack *stack);
 
@@ -32,8 +32,9 @@ void push(Stack *stack, int value);
 int pop(Stack *stack);
 int peek(Stack *stack);
 
-//ps_stack
+//Twix
 void init_twix(Twix *twix);
+int sa(Twix *twix);
 int pb(Twix *twix);
 int pa(Twix *twix);
 //utils.c

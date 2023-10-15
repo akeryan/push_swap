@@ -1,7 +1,7 @@
 
 #include "../include/push_swap.h"
 
-bool parsing(int argc, char** argv, Stack* stack_a) {
+bool parsing(int argc, char** argv, Stack* a) {
 	char** arg;
 	int i;
 
@@ -12,7 +12,7 @@ bool parsing(int argc, char** argv, Stack* stack_a) {
 
 	while (i < argc) {
 		arg = ft_split(argv[i++], ' ');
-		check_and_push(arg, stack_a);
+		check_and_push(arg, a);
 	}
 
 	return (1);
