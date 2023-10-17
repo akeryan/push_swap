@@ -9,12 +9,14 @@ int sb(Twix *twix) {
 		return (1);
 	}
 
-	if(!is_empty(&twix->b) || twix->b.top->next) {
+	if(!is_empty(&twix->b) && twix->b.top->next) {
 		temp = peek(&twix->b);
 		twix->b.top->data = twix->b.top->next->data;
 		twix->b.top->next->data = temp;
-	} else 
+	} else {
 		fprintf(stderr, "Error - sb(): stack is empty or there is only one node");
+		exit(1);
+	}
 	
 	printf("sb() is done\n");
 

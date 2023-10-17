@@ -7,6 +7,10 @@ int pa(Twix *twix) {
 
 	if(!is_empty(&twix->b))
 		push(&twix->a, pop(&twix->b));
+	else {
+		fprintf(stderr, "Error - pb: stack 'b' is empty\n");
+		exit(1);
+	}
 	
 	printf("pa() is done\n");
 

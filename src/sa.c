@@ -13,8 +13,10 @@ int sa(Twix *twix) {
 		temp = peek(&twix->a);
 		twix->a.top->data = twix->a.top->next->data;
 		twix->a.top->next->data = temp;
-	} else
+	} else {
 		fprintf(stderr, "Error - sa(): stack is empty or there is only one node\n");
+		exit(1);
+	}
 	
 	printf("sa() is done\n");
 
