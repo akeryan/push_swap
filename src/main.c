@@ -20,8 +20,7 @@ int main(int argc, char *argv[])
 	pb(&twix);
 	pb(&twix);
 	sa(&twix);
-
-	printf("Stack A\n");
+	printf("Stack A\n");	
 	print_stack(&twix.a);
 	printf("Stack B\n");
 	print_stack(&twix.b);

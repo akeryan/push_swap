@@ -6,13 +6,13 @@
 #    By: akeryan <akeryan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 18:04:15 by akeryan           #+#    #+#              #
-#    Updated: 2021/11/23 13:10:57 by akeryan          ###   ########.fr        #
+#    Updated: 2023/10/17 11:32:10 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = gcc
+CC = gcc 
 FLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 
