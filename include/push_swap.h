@@ -8,10 +8,13 @@
 typedef struct Node {
 	int data;
 	struct Node *next;
+	struct Node *prev;
 } Node;
 
 typedef struct Stack {
 	Node *top;
+	Node *last;
+	int length;
 } Stack;
 
 typedef struct Twix{
