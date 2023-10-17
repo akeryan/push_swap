@@ -8,13 +8,14 @@ void init_stack(Stack *stack)
 		exit(1);
 	}
 	stack->top = NULL;
+	stack->last = NULL;
 }
 
 void print_stack(Stack *stack) {
 	Node *current_node;
 
 	current_node = stack->top;
-	while(current_node != NULL) {
+	while(current_node != stack->last) {
 		printf("%d\n", current_node->data);
 		current_node = current_node->next;
 	}
@@ -45,9 +46,10 @@ void push(Stack *stack, int value)
 		exit(1);
 	}
 
-	newNode->next = stack->top;
 	newNode->data = value;
+	newNode->next = stack->top;
 	stack->top = newNode;
+	stack->last->next = newNode;
 }
 
 int pop(Stack *stack)
