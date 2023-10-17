@@ -7,6 +7,7 @@ void init_stack(Stack *stack)
 		fprintf(stderr, "Error - init_stack(): stack is null");
 		exit(1);
 	}
+	stack->length = 0;
 	stack->top = NULL;
 	stack->last = NULL;
 }
@@ -45,11 +46,13 @@ void push(Stack *stack, int value)
 		fprintf(stderr, "Error - push(): Allocation for new node failed\n");
 		exit(1);
 	}
-
+	
 	newNode->data = value;
 	newNode->next = stack->top;
 	stack->top = newNode;
-	stack->last->next = newNode;
+	if(stack->last)
+		stack->last->next = newNode;
+	stack->length++;
 }
 
 int pop(Stack *stack)

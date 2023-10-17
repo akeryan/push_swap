@@ -1,12 +1,14 @@
 
 #include "../include/push_swap.h"
 
-bool parsing(int argc, char** argv, Stack* a) {
+void parsing(int argc, char** argv, Stack* a) {
 	char** arg;
 	int i;
 
-	if (!enough_arguments(argc))
-		return false;
+	if (argc < 2) {
+		fprintf(stderr, "Error - parsing(): not enough argumetns");
+		exit(1);
+	}
 
 	i = 1;
 
@@ -14,11 +16,9 @@ bool parsing(int argc, char** argv, Stack* a) {
 		arg = ft_split(argv[i++], ' ');
 		check_and_push(arg, a);
 	}
-
-	return (1);
 }
 
-int check_and_push(char **str, Stack *stack) {
+void check_and_push(char **str, Stack *stack) {
 	int push_candidate_number;
 
 	while (*str != NULL) {
@@ -32,15 +32,5 @@ int check_and_push(char **str, Stack *stack) {
 		push(stack, push_candidate_number);
 		str++;
 	}
-	return 1;
 }
 
-bool enough_arguments(int argc) {
-	if (argc < 2)
-	{
-		fprintf(stderr, "Error (input_validatoin.c): Insufficient arguments.\n");
-		return false;
-	}
-	else
-		return true;
-}

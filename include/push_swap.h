@@ -23,9 +23,9 @@ typedef struct Twix{
 } Twix;
 
 //input_validation.c
-bool parsing(int argc, char **argv, Stack *stack);
+void parsing(int argc, char **argv, Stack *stack);
 bool enough_arguments(int argc);
-int check_and_push(char **str, Stack *stack);
+void check_and_push(char **str, Stack *stack);
 
 //stack.c
 void init_stack(Stack *stack);
