@@ -6,7 +6,7 @@ int sa(Twix *twix) {
 
 	if(!twix) {
 		fprintf(stderr, "Error - sa(): twix is NULL");
-		return (1);
+		exit(1);
 	}
 
 	if(!is_empty(&twix->a) && twix->a.top->next) {
