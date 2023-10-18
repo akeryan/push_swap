@@ -14,17 +14,15 @@ int main(int argc, char *argv[])
 	print_stack(&twix.a);
 	printf("length: %d\n", stack_length(&twix.a));
 
-	ra(&twix);
+	pb(&twix);
+	pb(&twix);
+	rr(&twix);
 	printf("Stack A\n");
 	print_stack(&twix.a);
-	//printf("Stack B\n");
-	//print_stack(&twix.b);
-	//pb(&twix);
-	//pb(&twix);
 	//printf("Stack A\n");
 	//print_stack(&twix.a);
-	//printf("Stack B\n");
-	//print_stack(&twix.b);
+	printf("Stack B\n");
+	print_stack(&twix.b);
 
 	//ss(&twix);
 	//printf("Stack A\n");
