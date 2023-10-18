@@ -14,11 +14,19 @@ int main(int argc, char *argv[])
 	printf("Stack A\n");
 	print_stack(&twix.a);
 	printf("length: %d\n", stack_length(&twix.a));
+	pb(&twix);
+	pb(&twix);
+	printf("Stack A\n");
+	print_stack(&twix.a);
+	printf("Stack B\n");
+	print_stack(&twix.b);
 
-	sa(&twix);
+	sb(&twix);
 	//printf("poped value: %d\n", p);
 	printf("Stack A\n");
 	print_stack(&twix.a);
+	printf("Stack B\n");
+	print_stack(&twix.b);
 
 	
 
