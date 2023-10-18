@@ -13,7 +13,6 @@ typedef struct Node {
 
 typedef struct Stack {
 	Node *top;
-	Node *last;
 	int length;
 } Stack;
 
@@ -29,6 +28,7 @@ void check_and_push(char **str, Stack *stack);
 
 //stack.c
 void init_stack(Stack *stack);
+Node *malloc_node();
 bool is_empty(Stack *stack);
 void print_stack(Stack *stack);
 void push(Stack *stack, int value);

@@ -9,16 +9,37 @@ void init_stack(Stack *stack)
 	}
 	stack->length = 0;
 	stack->top = NULL;
-	stack->last = NULL;
+}
+
+Node *malloc_node() {
+	Node *new_node = (Node *)malloc(sizeof(Node));
+	if (!new_node) {
+		fprintf(stderr, "Error - malloc_node(): Allocation for new node failed\n");
+		exit(1);
+	}
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	new_node->data = 0;
+	return new_node;
 }
 
 void print_stack(Stack *stack) {
-	Node *current_node;
+	if(!stack) {
+		fprintf(stderr, "Error - pring_stack(): stack is NULL\n");
+		exit(0);
+	}
+		
+	if(is_empty(stack)) {
+		fprintf(stderr, "Error - print_stack(): stack is empty\n");
+		exit(0);
+	}
 
+	Node *current_node;
 	current_node = stack->top;
-	while(current_node != stack->last) {
-		printf("%d\n", current_node->data);
+	printf("%d\n", current_node->data);
+	while(current_node->next != stack->top) {
 		current_node = current_node->next;
+		printf("%d\n", current_node->data);
 	}
 }
 
@@ -34,30 +55,36 @@ bool is_empty(Stack *stack)
 
 void push(Stack *stack, int value)
 {
-	if (stack == NULL)
-	{
+	if (!stack) {
 		fprintf(stderr, "Error - push(): stack is null");
 		exit(1);
 	}
 
-	Node *newNode = (Node *)malloc(sizeof(Node));
-	if (newNode == NULL)
-	{
-		fprintf(stderr, "Error - push(): Allocation for new node failed\n");
-		exit(1);
+	Node *new_node = malloc_node();
+	new_node->data = value;
+
+	if(!is_empty(stack)){
+		new_node->next = stack->top;
+		if(stack->length == 1) {
+			new_node->prev = stack->top;
+			stack->top->next = new_node;
+			stack->top->prev = new_node;
+		} else { // stack->length > 1
+			new_node->prev = stack->top->prev;
+			stack->top->prev->next = new_node;
+			stack->top->prev = new_node;
+		}
+	} else {
+		new_node->next = new_node;
+		new_node->prev = new_node;
 	}
-	
-	newNode->data = value;
-	newNode->next = stack->top;
-	stack->top = newNode;
-	if(stack->last)
-		stack->last->next = newNode;
+	stack->top = new_node;
 	stack->length++;
 }
 
 int pop(Stack *stack)
 {
-	if (stack == NULL)
+	if (!stack)
 	{
 		fprintf(stderr, "Error - pop(): stack is null");
 		exit(1);
