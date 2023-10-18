@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
 	print_stack(&twix.a);
 	printf("length: %d\n", stack_length(&twix.a));
 
-	int p = pop(&twix.a);
-	printf("poped value: %d\n", p);
+	sa(&twix);
+	//printf("poped value: %d\n", p);
 	printf("Stack A\n");
 	print_stack(&twix.a);
 

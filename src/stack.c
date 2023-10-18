@@ -122,6 +122,7 @@ int pop(Stack *stack)
 		}
 		stack->top = stack->top->next;					
 	}
+	stack->length--;
 	free(temp);
 
 	return value;
