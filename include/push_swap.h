@@ -46,6 +46,9 @@ int pa(Twix *twix);
 int ra(Twix *twix);
 int rb(Twix *twix);
 int rr(Twix *twix);
+int rra(Twix *twix);
+int rrb(Twix *twix);
+int rrr(Twix *twix);
 
 //utils.c
 size_t	my_strlen(const char *str);

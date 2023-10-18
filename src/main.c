@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
 	pb(&twix);
 	pb(&twix);
-	rr(&twix);
+	rrr(&twix);
 	printf("Stack A\n");
 	print_stack(&twix.a);
 	//printf("Stack A\n");
