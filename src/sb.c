@@ -6,7 +6,7 @@ int sb(Twix *twix) {
 	int temp2;
 
 	if(!twix) {
-		fprintf(stderr, "Error - sa(): twix is NULL");
+		fprintf(stderr, "Error - sb(): twix is NULL");
 		exit(1);
 	}
 
@@ -15,7 +15,7 @@ int sb(Twix *twix) {
 	push(&twix->b, temp1);
 	push(&twix->b, temp2);
 			
-	printf("sa() is done\n");
+	printf("sb() is done\n");
 
 	return (0);
 }

@@ -43,6 +43,8 @@ int sb(Twix *twix);
 int ss(Twix *twix);
 int pb(Twix *twix);
 int pa(Twix *twix);
+int ra(Twix *twix);
+int rb(Twix *twix);
 
 //utils.c
 size_t	my_strlen(const char *str);

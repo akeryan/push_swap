@@ -10,33 +10,25 @@ int main(int argc, char *argv[])
 		printf("Stack b is initialized correctly\n");
 	
 	parsing(argc, argv, &twix.a);
-
 	printf("Stack A\n");
 	print_stack(&twix.a);
 	printf("length: %d\n", stack_length(&twix.a));
-	pb(&twix);
-	pb(&twix);
+
+	ra(&twix);
 	printf("Stack A\n");
 	print_stack(&twix.a);
-	printf("Stack B\n");
-	print_stack(&twix.b);
-
-	sb(&twix);
-	//printf("poped value: %d\n", p);
-	printf("Stack A\n");
-	print_stack(&twix.a);
-	printf("Stack B\n");
-	print_stack(&twix.b);
-
-	
-
+	//printf("Stack B\n");
+	//print_stack(&twix.b);
 	//pb(&twix);
 	//pb(&twix);
-	//sa(&twix);
-	//printf("Stack A\n");	
+	//printf("Stack A\n");
 	//print_stack(&twix.a);
 	//printf("Stack B\n");
 	//print_stack(&twix.b);
+
+	//ss(&twix);
+	//printf("Stack A\n");
+	//print_stack(&twix.a);
 	//printf("Stack B\n");
 	//print_stack(&twix.b);
 	return (0);
