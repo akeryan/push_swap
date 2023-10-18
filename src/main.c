@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 
 	printf("Stack A\n");
 	print_stack(&twix.a);
+	printf("length: %d\n", stack_length(&twix.a));
 
 	//pb(&twix);
 	//pb(&twix);

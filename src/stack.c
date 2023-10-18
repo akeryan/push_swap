@@ -53,6 +53,15 @@ bool is_empty(Stack *stack)
 	return (stack->top == NULL);
 }
 
+int stack_length(Stack *stack) {
+	if (!stack) {
+		fprintf(stderr, "Error - stack_length(): stack is null");
+		exit(1);
+	}
+
+	return (stack->length);	
+}
+
 void push(Stack *stack, int value)
 {
 	if (!stack) {
@@ -65,7 +74,7 @@ void push(Stack *stack, int value)
 
 	if(!is_empty(stack)){
 		new_node->next = stack->top;
-		if(stack->length == 1) {
+		if(stack->top->next == stack->top) { // it means that there is only one node, which is top node
 			new_node->prev = stack->top;
 			stack->top->next = new_node;
 			stack->top->prev = new_node;
@@ -74,7 +83,7 @@ void push(Stack *stack, int value)
 			stack->top->prev->next = new_node;
 			stack->top->prev = new_node;
 		}
-	} else {
+	} else { // stack is empty
 		new_node->next = new_node;
 		new_node->prev = new_node;
 	}
@@ -90,12 +99,8 @@ int pop(Stack *stack)
 		exit(1);
 	}
 
-	Node *top_node = stack->top;
-	int value = top_node->data;
-	stack->top = top_node->next;
-	free(top_node);
 
-	return value;
+	return 9;
 }
 
 int peek(Stack *stack)
