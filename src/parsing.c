@@ -19,6 +19,11 @@ void parsing(int argc, char **argv, Stack *a) {
 
 	while (i < argc) {
 		arg = ft_split(argv[i++], ' ');
+		if(!*arg) {
+			fprintf(stderr, "Error - parsing(): input is empty\n");
+			exit(0);
+		}
+			
 		check_and_push(arg, a);
 	}
 }
