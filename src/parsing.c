@@ -1,9 +1,14 @@
 
 #include "../include/push_swap.h"
 
-void parsing(int argc, char** argv, Stack* a) {
-	char** arg;
+void parsing(int argc, char **argv, Stack *a) {
+	char **arg;
 	int i;
+
+	if(!a) {
+		fprintf(stderr, "Error - parsing(): stack is NULL\n");
+		exit(0);
+	}
 
 	if (argc < 2) {
 		fprintf(stderr, "Error - parsing(): not enough argumetns");
@@ -29,8 +34,39 @@ void check_and_push(char **str, Stack *stack) {
 			printf("%s is not a valid number\n", *str);
 			exit(1);
 		}
-		push(stack, push_candidate_number);
-		str++;
+		if(!is_duplicate(stack, push_candidate_number)) {
+			push(stack, push_candidate_number);
+			str++;
+		} else
+			exit(0);
 	}
 }
+
+int is_duplicate(Stack *stack, int a) {
+	Node *current_node;
+
+	if(!stack){
+		printf("Error - is_there_duplicates(): stack is NULL\n");
+		exit(0);
+	}
+
+	if(!stack->top)
+		return (0);
+	if(stack->top->data == a) {
+		printf("Error - is_there_duplicate(): there is a duplicate: %d\n", a);
+		return (1);
+	}
+		
+	current_node = stack->top;
+	while(current_node->next != stack->top) {
+		if(current_node->next->data == a) {
+			printf("Error - is_there_duplicate(): there is a duplicate: %d\n", a);
+			return (1);
+		}
+		current_node = current_node->next;
+	}
+	return (0);
+}
+ 
+
 

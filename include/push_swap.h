@@ -21,10 +21,11 @@ typedef struct Twix{
 	Stack b;
 } Twix;
 
-//input_validation.c
+//parsing.c
 void parsing(int argc, char **argv, Stack *stack);
 bool enough_arguments(int argc);
 void check_and_push(char **str, Stack *stack);
+int is_duplicate(Stack *stack, int a);
 
 //stack.c
 void init_stack(Stack *stack);
