@@ -25,8 +25,11 @@ size_t	my_strlen(const char *str)
 		str++;
 	}
 
-	while(*str == '0')
+	while(*str == '0') {
+		if(ft_strlen(str) == 1)
+			return (1);
 		str++;
+	}
 	
 	if(!ft_isdigit(*str))
 		len--;

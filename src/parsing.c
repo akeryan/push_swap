@@ -31,7 +31,7 @@ void check_and_push(char **str, Stack *stack) {
 		printf("%d\n", push_candidate_number);
 		
 		if (ft_strlen(ft_itoa(push_candidate_number)) != my_strlen(*str)) {
-			printf("%s is not a valid number\n", *str);
+			printf("Error - check_and_push(): is not a valid input: '%s'\n", *str);
 			exit(1);
 		}
 		if(!is_duplicate(stack, push_candidate_number)) {
