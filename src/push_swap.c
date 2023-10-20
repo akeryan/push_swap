@@ -17,3 +17,12 @@ int search_for_insertion_location(Stack *stack, int val) {
 	}
 	return (0);
 }
+
+/*	Calculates 'scores' for each of the elements of the stack_b and stores them 
+	in the array under an indeces, which corresponds to the position of an element 
+	in the stack, e.g. the 'score' of the n-th element of the stack will be saved
+	in the array under the index 'n'.
+*/ 
+int *calculate_scores(Twix *twix) {
+
+}
