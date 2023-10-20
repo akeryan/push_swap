@@ -59,6 +59,6 @@ size_t	my_strlen(const char *str);
 
 //push_swap
 void push_swap(Twix *twix);
-int search_for_isertion_point(Stack *stack, int val);
+int search_for_insertion_location(Stack *stack, int val);
 
 #endif
