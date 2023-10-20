@@ -10,24 +10,8 @@ int main(int argc, char *argv[])
 		printf("Stack b is initialized correctly\n");
 	
 	parsing(argc, argv, &twix.a);
-	printf("Stack A\n");
+	printf("stack A\n");
 	print_stack(&twix.a);
-	printf("length: %d\n", stack_length(&twix.a));
-
-	pb(&twix);
-	pb(&twix);
-	rrr(&twix);
-	printf("Stack A\n");
-	print_stack(&twix.a);
-	//printf("Stack A\n");
-	//print_stack(&twix.a);
-	printf("Stack B\n");
-	print_stack(&twix.b);
-
-	//ss(&twix);
-	//printf("Stack A\n");
-	//print_stack(&twix.a);
-	//printf("Stack B\n");
-	//print_stack(&twix.b);
+	//printf("position: %d\n", search_for_isertion_point(&twix.a, 10));
 	return (0);
 }

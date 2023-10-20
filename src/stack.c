@@ -36,10 +36,10 @@ void print_stack(Stack *stack) {
 
 	Node *current_node;
 	current_node = stack->top;
-	printf("%d\n", current_node->data);
+	printf("%d: %d\n", current_node->pos, current_node->data);
 	while(current_node->next != stack->top) {
 		current_node = current_node->next;
-		printf("%d\n", current_node->data);
+		printf("%d: %d\n", current_node->pos, current_node->data);
 	}
 }
 
@@ -71,6 +71,7 @@ void push(Stack *stack, int value)
 
 	Node *new_node = malloc_node();
 	new_node->data = value;
+	new_node->pos = 0;
 
 	if(!is_empty(stack)){
 		new_node->next = stack->top;
@@ -89,6 +90,7 @@ void push(Stack *stack, int value)
 	}
 	stack->top = new_node;
 	stack->length++;
+	update_positions(stack);
 }
 
 int pop(Stack *stack)
@@ -123,6 +125,7 @@ int pop(Stack *stack)
 		stack->top = stack->top->next;					
 	}
 	stack->length--;
+	update_positions(stack);
 	free(temp);
 
 	return value;
@@ -143,4 +146,20 @@ int peek(Stack *stack)
 	}
 
 	return (stack->top->data);
+}
+
+void update_positions(Stack *stack) {
+	Node *this_node;
+	int i;
+
+	if(!stack || is_empty(stack))
+		return;
+
+	i = 0;
+	stack->top->pos = i;
+	this_node = stack->top->next;
+	while(this_node != stack->top) {
+		this_node->pos = ++i;
+		this_node = this_node->next;
+	}
 }
