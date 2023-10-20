@@ -30,18 +30,20 @@ void parsing(int argc, char **argv, Stack *a) {
 
 void check_and_push(char **str, Stack *stack) {
 	int push_candidate_number;
+	char **this_elem;
 
-	while (*str != NULL) {
-		push_candidate_number = ft_atoi(*str);
+	this_elem = --str;
+	while(*++this_elem);
+	while (--this_elem != str) {
+		push_candidate_number = ft_atoi(*this_elem);
 		printf("%d\n", push_candidate_number);
 		
-		if (ft_strlen(ft_itoa(push_candidate_number)) != my_strlen(*str)) {
-			printf("Error - check_and_push(): is not a valid input: '%s'\n", *str);
+		if (ft_strlen(ft_itoa(push_candidate_number)) != my_strlen(*this_elem)) {
+			printf("Error - check_and_push(): is not a valid input: '%s'\n", *this_elem);
 			exit(1);
 		}
 		if(!is_duplicate(stack, push_candidate_number)) {
 			push(stack, push_candidate_number);
-			str++;
 		} else
 			exit(0);
 	}
