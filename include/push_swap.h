@@ -7,6 +7,8 @@
 
 typedef struct Node {
 	int data;
+	int score;
+	int pos;
 	struct Node *next;
 	struct Node *prev;
 } Node;
@@ -36,6 +38,7 @@ void print_stack(Stack *stack);
 void push(Stack *stack, int value);
 int pop(Stack *stack);
 int peek(Stack *stack);
+void update_positions(Stack *stack);
 
 //Twix
 void init_twix(Twix *twix);
@@ -53,5 +56,9 @@ int rrr(Twix *twix);
 
 //utils.c
 size_t	my_strlen(const char *str);
+
+//push_swap
+void push_swap(Twix *twix);
+int search_for_isertion_point(Stack *stack, int val);
 
 #endif
