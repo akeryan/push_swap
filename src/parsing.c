@@ -36,8 +36,6 @@ void check_and_push(char **str, Stack *stack) {
 	while(*++this_elem);
 	while (--this_elem != str) {
 		push_candidate_number = ft_atoi(*this_elem);
-		printf("%d\n", push_candidate_number);
-		
 		if (ft_strlen(ft_itoa(push_candidate_number)) != my_strlen(*this_elem)) {
 			printf("Error - check_and_push(): is not a valid input: '%s'\n", *this_elem);
 			exit(1);
