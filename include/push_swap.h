@@ -7,7 +7,6 @@
 
 typedef struct Node {
 	int data;
-	int score;
 	int pos;
 	struct Node *next;
 	struct Node *prev;
