@@ -12,6 +12,6 @@ int main(int argc, char *argv[])
 	parsing(argc, argv, &twix.a);
 	printf("stack A\n");
 	print_stack(&twix.a);
-	//printf("position: %d\n", search_for_isertion_point(&twix.a, 10));
+	printf("position: %d\n", search_for_insertion_location(&twix.a, 10));
 	return (0);
 }

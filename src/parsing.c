@@ -1,4 +1,3 @@
-
 #include "../include/push_swap.h"
 
 void parsing(int argc, char **argv, Stack *a) {
@@ -15,10 +14,10 @@ void parsing(int argc, char **argv, Stack *a) {
 		exit(1);
 	}
 
-	i = 1;
+	i = argc - 1;
 
-	while (i < argc) {
-		arg = ft_split(argv[i++], ' ');
+	while (i > 0) {
+		arg = ft_split(argv[i--], ' ');
 		if(!*arg) {
 			fprintf(stderr, "Error - parsing(): input is empty\n");
 			exit(0);
