@@ -15,7 +15,7 @@ int sb(Twix *twix) {
 	push(&twix->b, temp1);
 	push(&twix->b, temp2);
 			
-	printf("sb() is done\n");
+	printf("sb()\n");
 
 	return (0);
 }

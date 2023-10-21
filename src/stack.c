@@ -31,7 +31,7 @@ void print_stack(Stack *stack) {
 		
 	if(is_empty(stack)) {
 		fprintf(stderr, "Error - print_stack(): stack is empty\n");
-		exit(0);
+		return;
 	}
 
 	Node *current_node;

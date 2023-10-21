@@ -12,7 +12,7 @@ int pa(Twix *twix) {
 		exit(1);
 	}
 	
-	printf("pa() is done\n");
+	printf("pa()\n");
 
 	return (0);
 }

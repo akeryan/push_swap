@@ -4,7 +4,7 @@
 int ss(Twix *twix) {
 	sa(twix);
 	sb(twix);
-	printf("ss() is done\n");
+	printf("ss()\n");
 
 	return (0);
 }

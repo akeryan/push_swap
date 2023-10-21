@@ -6,5 +6,6 @@ int rrb(Twix *twix) {
 		return (1);
 
 	twix->b.top = twix->b.top->prev;
+	printf("rrb()\n");
 	return (0);	
 }

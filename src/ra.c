@@ -6,5 +6,6 @@ int ra(Twix *twix) {
 		return (1);
 
 	twix->a.top = twix->a.top->next;
+	printf("ra()\n");
 	return (0);	
 }

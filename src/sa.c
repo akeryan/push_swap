@@ -15,7 +15,7 @@ int sa(Twix *twix) {
 	push(&twix->a, temp1);
 	push(&twix->a, temp2);
 			
-	printf("sa() is done\n");
+	printf("sa()\n");
 
 	return (0);
 }

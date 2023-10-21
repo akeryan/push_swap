@@ -12,7 +12,7 @@ int pb(Twix *twix) {
 		exit(1);
 	}
 
-	printf("pb() is done\n");
+	printf("pb()\n");
 
 	return (0);
 }

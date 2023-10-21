@@ -5,5 +5,6 @@ int rra(Twix *twix) {
 		return (1);
 
 	twix->a.top = twix->a.top->prev;
+	printf("rra()\n");
 	return (0);	
 }

@@ -2,6 +2,8 @@
 
 int search_for_insertion_location(Stack *stack, int val) {
 	Node *this_node;
+	Node *max_val_node;
+	Node *min_val_node;
 	int i;
 
 	if(!stack)
@@ -10,13 +12,20 @@ int search_for_insertion_location(Stack *stack, int val) {
 		return (0);
 
 	i = 0;
+	max_val_node = stack->top;
+	min_val_node = stack->top;
 	this_node = stack->top;
 	while(i++ < stack->length) {
 		if(val < this_node->data && val > this_node->prev->data)
 			return (this_node->pos);
+		if(max_val_node->data > this_node->data)
+			max_val_node = this_node;
+		if(min_val_node->data < this_node->data)
+			min_val_node = this_node;
 		this_node = this_node->next;
 	}
-	return (0);
+	return max_val_node->pos;
+	//return 0;
 }
 
 
@@ -55,7 +64,26 @@ int search_for_insertion_location(Stack *stack, int val) {
 
 //}
 
-int ps_push(Twix *twix, int *steps) {
+void push_swap(Twix *twix) {
+	int i;
+	int loc;
+	int *rotations;
+
+	i = 0;
+	while(i < twix->a.length) {
+		pb(twix);
+	}
+	
+	i = 0;
+	while(twix->b.length > 0) {
+		loc = search_for_insertion_location(&twix->a, twix->b.top->data);
+		rotations = rotation_options(loc, 0, twix->a.length, twix->b.length);
+		ps_push(twix, rotations);
+	}
+
+}
+
+void ps_push(Twix *twix, int *steps) {
 	int i;
 	int j;
 
@@ -63,6 +91,7 @@ int ps_push(Twix *twix, int *steps) {
 
 	i = 0;
 	while(i < STEPS) {
+		j = 0;
 		while(j < steps[i])	{
 			operation[i](twix);
 			j++;
@@ -88,12 +117,12 @@ int *rotation_options(int loc_a, int loc_b, int len_a, int len_b) {
 	if(loc_a <= len_a - loc_a + 1)
 		rotations[2] = loc_a;
 	else
-		rotations[3] = len_a - loc_a + 1;
+		rotations[3] = len_a - loc_a;
 	
 	if(loc_b <= len_b - loc_b + 1)
 		rotations[4] = loc_b;
 	else
-		rotations[5] = len_b - loc_b + 1;
+		rotations[5] = len_b - loc_b;
 
 	if(rotations[2] > 0 && rotations[4] > 0) {
 		rotations[0] = min(rotations[2], rotations[4]);
