@@ -38,3 +38,9 @@ size_t	my_strlen(const char *str)
 
 	return (len);
 }
+
+int min(int a, int b) {
+	if(a < b)
+		return a;
+	return b;
+}

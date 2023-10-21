@@ -55,9 +55,11 @@ int rrr(Twix *twix);
 
 //utils.c
 size_t	my_strlen(const char *str);
+int min(int a, int b);
 
 //push_swap
 void push_swap(Twix *twix);
 int search_for_insertion_location(Stack *stack, int val);
+int *rotation_options(int loc_a, int loc_b, int len_a, int len_b);
 
 #endif
