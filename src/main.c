@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 	parsing(argc, argv, &twix.a);
 	printf("stack A\n");
 	print_stack(&twix.a);
+	
 	//printf("position: %d\n", search_for_insertion_location(&twix.a, 10));
 	//int *rot = rotation_options(4, 12, 10, 14);
 	//for(int i = 0; i < 6; i++)
