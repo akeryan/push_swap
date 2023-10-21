@@ -1,6 +1,8 @@
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
+#define STEPS	6
+
 #include <stdio.h>
 #include <stdbool.h>
 #include "../libft/libft.h"

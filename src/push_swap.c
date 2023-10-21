@@ -19,6 +19,8 @@ int search_for_insertion_location(Stack *stack, int val) {
 	return (0);
 }
 
+
+
 /*	- Calculates 'scores' for each of the elements of the stack_b and stores them 
 	in the array under an indeces, which corresponds to the position of an element 
 	in the stack, e.g. the 'score' of the n-th element of the stack will be saved
@@ -53,15 +55,32 @@ int search_for_insertion_location(Stack *stack, int val) {
 
 //}
 
+int ps_push(Twix *twix, int *steps) {
+	int i;
+	int j;
+
+	int (*operation[])(Twix *) = {rr, rrr, ra, rra, rb, rrb};
+
+	i = 0;
+	while(i < STEPS) {
+		while(j < steps[i])	{
+			operation[i](twix);
+			j++;
+		}
+		i++;
+	}
+	pa(twix);
+}
+
 /*	- This function returns an array of size 6, that contains number of steps
 	that each of the stacks needs to be rotated in order to perform placement 
-	of the element from stack 'b' to stack 'a'
+	of the element from stack_b to stack_a
 	- value under index '0' indicates number of times both stacks to be rotated forward 'rr'
 	- value under index '1' indicates number of times both stacks to be rotated backward 'rrr'
 	- value under index '2' indicates number of times stack_a to be rotated forward 'ra' 
 	- value under index '3' indicates number of times stack_a to be rotated backward 'rra' 
-	- value under index '4' indicates number of times stack_b to be rotated forward 'ra' 
-	- value under index '5' indicates number of times stack_b to be rotated backward 'rra' 
+	- value under index '4' indicates number of times stack_b to be rotated forward 'rb' 
+	- value under index '5' indicates number of times stack_b to be rotated backward 'rrb' 
 	*/
 int *rotation_options(int loc_a, int loc_b, int len_a, int len_b) {
 	int *rotations = (int *)ft_calloc(6, sizeof(int)); //dynamically allocated array of length 6
