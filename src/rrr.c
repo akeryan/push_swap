@@ -5,7 +5,7 @@
 int rrr(Twix *twix) {
 	rra(twix);
 	rrb(twix);
-	printf("ss()\n");
+	printf("rrr()\n");
 
 	return (0);
 }

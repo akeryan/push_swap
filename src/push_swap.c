@@ -93,16 +93,21 @@ int *cheapest_push(Stack *stack_a, Stack *stack_b) {
 	int *rotations;
 
 	i = 0;
-	min_ops = 0;
 	this_node = stack_b->top;
 	cheap_node = stack_b->top;
-	while(i++ < stack_b->length) {
+
+	loc = search_for_insertion_location(stack_a, this_node->data);
+	rotations = rotation_options(loc, this_node->pos, stack_a->length, stack_b->length);
+	min_ops = sumup_rotations(rotations);
+	this_node = this_node->next;
+	while(++i < stack_b->length) {
 		loc = search_for_insertion_location(stack_a, this_node->data);
 		rotations = rotation_options(loc, this_node->pos, stack_a->length, stack_b->length);
 		if(sumup_rotations(rotations) < min_ops) {
 			min_ops = sumup_rotations(rotations);
 			cheap_node = this_node;
 		}
+		this_node = this_node->next;
 	}
 	loc = search_for_insertion_location(stack_a, cheap_node->data);
 	rotations = rotation_options(loc, cheap_node->pos, stack_a->length, stack_b->length);
