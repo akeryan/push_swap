@@ -2,6 +2,7 @@
 
 int main(int argc, char *argv[])
 {
+	int num_of_ops;
 	Twix twix;
 	init_twix(&twix);
 	if(twix.a.top == NULL)
@@ -13,7 +14,7 @@ int main(int argc, char *argv[])
 	printf("stack A\n");
 	print_stack(&twix.a);
 
-	push_swap(&twix);
+	num_of_ops = push_swap(&twix);
 	//PS_PUSH
 	//pb(&twix);
 	//pb(&twix);
@@ -22,6 +23,8 @@ int main(int argc, char *argv[])
 	print_stack(&twix.a);
 	printf("stack B\n");
 	print_stack(&twix.b);
+
+	printf("Num of steps: %d\n", num_of_ops);
 
 	//int *rotations = rotation_options(1, 1, 2, 3);
 	//for (int i = 0; i < STEPS; i++) {

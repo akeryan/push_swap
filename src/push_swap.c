@@ -64,41 +64,48 @@ int search_for_insertion_location(Stack *stack, int val) {
 
 //}
 
-void push_swap(Twix *twix) {
+int push_swap(Twix *twix) {
 	int i;
 	int loc;
 	int *rotations;
+	int sum;
 
 	i = 0;
+	sum = 0;
 	while(i < twix->a.length) {
 		pb(twix);
+		sum++;
 	}
 	
 	i = 0;
 	while(twix->b.length > 0) {
 		loc = search_for_insertion_location(&twix->a, twix->b.top->data);
 		rotations = rotation_options(loc, 0, twix->a.length, twix->b.length);
-		ps_push(twix, rotations);
+		sum += ps_push(twix, rotations);
 	}
-
+	return (sum);
 }
 
-void ps_push(Twix *twix, int *steps) {
+int ps_push(Twix *twix, int *steps) {
 	int i;
 	int j;
+	int sum; //keeps number of operations performed
 
 	int (*operation[])(Twix *) = {rr, rrr, ra, rra, rb, rrb};
 
 	i = 0;
+	sum = 0;
 	while(i < STEPS) {
 		j = 0;
 		while(j < steps[i])	{
 			operation[i](twix);
 			j++;
 		}
+		sum += j;
 		i++;
 	}
 	pa(twix);
+	return (sum + 1);
 }
 
 /*	- This function returns an array of size 6, that contains number of steps
