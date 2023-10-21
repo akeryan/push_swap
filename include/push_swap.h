@@ -64,5 +64,8 @@ int push_swap(Twix *twix);
 int search_for_insertion_location(Stack *stack, int val);
 int *rotation_options(int loc_a, int loc_b, int len_a, int len_b);
 int ps_push(Twix *twix, int *steps);
+int *cheapest_push(Stack *stack_a, Stack *stack_b);
+int sumup_rotations(int *rots);
+
 
 #endif

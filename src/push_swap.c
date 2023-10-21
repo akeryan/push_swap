@@ -65,23 +65,59 @@ int search_for_insertion_location(Stack *stack, int val) {
 //}
 
 int push_swap(Twix *twix) {
-	int i;
-	int loc;
 	int *rotations;
 	int sum;
 
-	i = 0;
 	sum = 0;
-	while(i < twix->a.length) {
+	while(twix->a.length > 0) {
 		pb(twix);
 		sum++;
 	}
 	
-	i = 0;
 	while(twix->b.length > 0) {
-		loc = search_for_insertion_location(&twix->a, twix->b.top->data);
-		rotations = rotation_options(loc, 0, twix->a.length, twix->b.length);
+		//loc = search_for_insertion_location(&twix->a, twix->b.top->data);
+		//rotations = rotation_options(loc, 0, twix->a.length, twix->b.length);
+		rotations = cheapest_push(&twix->a, &twix->b);
 		sum += ps_push(twix, rotations);
+	}
+
+	return (sum);
+}
+ 
+int *cheapest_push(Stack *stack_a, Stack *stack_b) {
+	int i;
+	int loc;
+	int min_ops;
+	Node *this_node;
+	Node *cheap_node;
+	int *rotations;
+
+	i = 0;
+	min_ops = 0;
+	this_node = stack_b->top;
+	cheap_node = stack_b->top;
+	while(i++ < stack_b->length) {
+		loc = search_for_insertion_location(stack_a, this_node->data);
+		rotations = rotation_options(loc, this_node->pos, stack_a->length, stack_b->length);
+		if(sumup_rotations(rotations) < min_ops) {
+			min_ops = sumup_rotations(rotations);
+			cheap_node = this_node;
+		}
+	}
+	loc = search_for_insertion_location(stack_a, cheap_node->data);
+	rotations = rotation_options(loc, cheap_node->pos, stack_a->length, stack_b->length);
+	return rotations;
+}
+
+int sumup_rotations(int *rots) {
+	int i;
+	int sum;
+
+	i = 0;
+	sum = 0;
+	while(i < STEPS) {
+		sum += rots[i];
+		i++;
 	}
 	return (sum);
 }

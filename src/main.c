@@ -21,9 +21,6 @@ int main(int argc, char *argv[])
 	//pb(&twix);
 	printf("stack A\n");
 	print_stack(&twix.a);
-	printf("stack B\n");
-	print_stack(&twix.b);
-
 	printf("Num of steps: %d\n", num_of_ops);
 
 	//int *rotations = rotation_options(1, 1, 2, 3);
