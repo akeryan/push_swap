@@ -35,7 +35,7 @@ int is_duplicate(Stack *stack, int a);
 void init_stack(Stack *stack);
 Node *malloc_node();
 bool is_empty(Stack *stack);
-int stack_length(Stack *stack);
+//int stack_length(Stack *stack);
 void print_stack(Stack *stack);
 void push(Stack *stack, int value);
 int pop(Stack *stack);
@@ -59,6 +59,7 @@ int rrr(Twix *twix);
 //utils.c
 size_t	my_strlen(const char *str);
 int min(int a, int b);
+int max(int a, int b);
 
 //push_swap
 int push_swap(Twix *twix);
@@ -68,5 +69,7 @@ int ps_push(Twix *twix, int *steps);
 int *cheapest_push(Stack *stack_a, Stack *stack_b);
 int sumup_rotations(int *rots);
 
+//lis
+int lis(Stack *stack);
 
 #endif

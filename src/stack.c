@@ -53,14 +53,14 @@ bool is_empty(Stack *stack)
 	return (stack->top == NULL);
 }
 
-int stack_length(Stack *stack) {
-	if (!stack) {
-		fprintf(stderr, "Error - stack_length(): stack is null");
-		exit(1);
-	}
+//int stack_length(Stack *stack) {
+	//if (!stack) {
+		//fprintf(stderr, "Error - stack_length(): stack is null");
+		//exit(1);
+	//}
 
-	return (stack->length);	
-}
+	//return (stack->length);	
+//}
 
 void push(Stack *stack, int value)
 {
