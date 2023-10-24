@@ -20,10 +20,15 @@ typedef struct Stack {
 	int length;
 } Stack;
 
-typedef struct Twix{
+typedef struct Twix {
 	Stack a;
 	Stack b;
 } Twix;
+
+typedef struct Int_array {
+	int *array;
+	int length; 
+} Int_array;
 
 //parsing.c
 void parsing(int argc, char **argv, Stack *stack);
@@ -70,6 +75,6 @@ int *cheapest_push(Stack *stack_a, Stack *stack_b);
 int sumup_rotations(int *rots);
 
 //lis
-int *lis(Stack *stack);
+Int_array *lis(Stack *stack);
 
 #endif
