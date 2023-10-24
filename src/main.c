@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	printf("stack A\n");
 	print_stack(&twix.a);
 
-	printf("max len: %d\n", lis(&twix.a));
+	printf("lis len: %d\n", lis(&twix.a)->length);
 	//num_of_ops = push_swap(&twix);
 	//printf("stack A\n");
 	//print_stack(&twix.a);

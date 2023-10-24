@@ -67,6 +67,11 @@ int search_for_insertion_location(Stack *stack, int val) {
 int push_swap(Twix *twix) {
 	int *rotations;
 	int sum;
+	//int *lis_a; // 'lis' in stack 'a'
+
+	//lis_a = lis(&twix->a);
+	//clean(&twix->a, lis_a);
+
 
 	sum = 0;
 	while(twix->a.length > 0) {
@@ -83,6 +88,9 @@ int push_swap(Twix *twix) {
 
 	return (sum);
 }
+
+
+//void clean(Stack stack, lis_a);
  
 int *cheapest_push(Stack *stack_a, Stack *stack_b) {
 	int i;
