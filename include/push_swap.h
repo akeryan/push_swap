@@ -2,6 +2,7 @@
 #define PUSH_SWAP_H
 
 #define STEPS	6
+#define PRINT	0 // '1' - print, '0' - don't print
 
 #include <stdio.h>
 #include <stdbool.h>
