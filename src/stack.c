@@ -162,3 +162,32 @@ void update_positions(Stack *stack) {
 		this_node = this_node->next;
 	}
 }
+
+// works correctly only if the stack is sorted in an ascending order
+int balance(Twix *twix) {
+	Node *this_node;
+	int i;
+	int sum;
+
+	i = 0;
+	sum = 0;
+	this_node = twix->a.top;
+
+	while(this_node->data < this_node->next->data) {
+		i++;
+		this_node = this_node->next;
+	}
+	if(i < twix->a.length/2)
+		while(i-- >= 0) {
+			ra(twix);
+			sum++;
+		}
+	else {
+		i = twix->a.length - i - 1;
+		while(i-- > 0) {
+			rra(twix);
+			sum++;
+		}
+	}
+	return sum;
+}

@@ -47,6 +47,7 @@ void push(Stack *stack, int value);
 int pop(Stack *stack);
 int peek(Stack *stack);
 void update_positions(Stack *stack);
+int balance(Twix *twix);
 
 //Twix
 void init_twix(Twix *twix);

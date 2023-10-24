@@ -13,8 +13,11 @@ int main(int argc, char *argv[])
 	//printf("CLEAN()\n");
 	//sum = clean(&twix);
 
-	printf("PUSH_SWAP()\n");
 	sum = push_swap(&twix);
+	printf("PUSH_SWAP()\n");
+	printf("stack A\n");
+	print_stack(&twix.a);
+	sum += balance(&twix);
 
 	printf("FINAL OUTPUT\n");
 	printf("stack A\n");
