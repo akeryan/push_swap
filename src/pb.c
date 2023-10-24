@@ -12,7 +12,8 @@ int pb(Twix *twix) {
 		exit(1);
 	}
 
-	printf("pb()\n");
+	if(PRINT == 1)
+		printf("pb()\n");
 
 	return (0);
 }

@@ -11,8 +11,8 @@ int pa(Twix *twix) {
 		fprintf(stderr, "Error - pb: stack 'b' is empty\n");
 		exit(1);
 	}
-	
-	printf("pa()\n");
+	if(PRINT == 1)
+		printf("pa()\n");
 
 	return (0);
 }

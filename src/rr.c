@@ -4,7 +4,9 @@
 int rr(Twix *twix) {
 	ra(twix);
 	rb(twix);
-	printf("rr()\n");
+
+	if(PRINT == 1)
+		printf("rr()\n");
 
 	return (0);
 }

@@ -6,6 +6,8 @@ int ra(Twix *twix) {
 		return (1);
 
 	twix->a.top = twix->a.top->next;
-	printf("ra()\n");
+	update_positions(&twix->a);
+	if(PRINT == 1)
+		printf("ra()\n");
 	return (0);	
 }
