@@ -126,7 +126,6 @@ int pop(Stack *stack)
 	}
 	stack->length--;
 	update_positions(stack);
-	free(temp);
 
 	return value;
 }

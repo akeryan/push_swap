@@ -68,15 +68,13 @@ int push_swap(Twix *twix) {
 	int *rotations;
 	int sum;
 
-	sum = 0;
-	sum += clean(twix);
+	printf("CLEAN\n\n");
+	sum = clean(twix);
+	printf("Stack A\n");
+	print_stack(&twix->a);
+	printf("Stack B\n");
+	print_stack(&twix->b);
 
-
-	//while(twix->a.length > 0) {
-		//pb(twix);
-		//sum++;
-	//}
-	
 	while(twix->b.length > 0) {
 		//loc = search_for_insertion_location(&twix->a, twix->b.top->data);
 		//rotations = rotation_options(loc, 0, twix->a.length, twix->b.length);
@@ -104,11 +102,13 @@ int clean(Twix *twix) {
 			ra(twix);
 			sum++;
 			i++;
-			continue;
 		}
-		if(twix->a.top->next == twix->a.top)
-			break;
 	}
+	while(twix->a.length > lis_a->length) {
+		pb(twix);
+		sum++;
+	}
+	free(lis_a);
 	return sum;
 }
  

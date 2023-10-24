@@ -2,23 +2,23 @@
 
 int main(int argc, char *argv[])
 {
-	//int num_of_ops;
+	int sum;
 	Twix twix;
 	init_twix(&twix);
-	if(twix.a.top == NULL)
-		printf("Stack a is initialized correctly\n");
-	if(twix.b.top == NULL)
-		printf("Stack b is initialized correctly\n");
 	
 	parsing(argc, argv, &twix.a);
 	printf("stack A\n");
 	print_stack(&twix.a);
 
-	int sum = clean(&twix);
+	//printf("CLEAN()\n");
+	//sum = clean(&twix);
+
+	printf("PUSH_SWAP()\n");
+	sum = push_swap(&twix);
+
+	printf("FINAL OUTPUT\n");
 	printf("stack A\n");
 	print_stack(&twix.a);
-	printf("stack B\n");
-	print_stack(&twix.b);
 	printf("steps: %d\n", sum);
 
 	return (0);

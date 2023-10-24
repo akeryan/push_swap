@@ -55,11 +55,11 @@ Int_array *lis(Stack *stack) {
 	}
 	
 	// print values of array 'd'
-	i = 0;
-	while(i < s_len) {
-		printf("d[%d]: %d\n", i, d[i]);
-		i++;
-	}
+	//i = 0;
+	//while(i < s_len) {
+		//printf("d[%d]: %d\n", i, d[i]);
+		//i++;
+	//}
 
 	//find max_lis_ix 
     j = d[0];
@@ -73,16 +73,17 @@ Int_array *lis(Stack *stack) {
 		i++;
 	}
 
-	i = 0;
-	while(i < s_len) {
-		printf("p[%d]: %d\n", i, p[i]);
-		i++;
-	}
+	////print 'p'
+	//i = 0;
+	//while(i < s_len) {
+		//printf("p[%d]: %d\n", i, p[i]);
+		//i++;
+	//}
 
 	lis_restored = (Int_array *)malloc(sizeof(Int_array));
 	lis_restored->array = (int *)ft_calloc(d[max_lis_ix], sizeof(int));
 	lis_restored->length = d[max_lis_ix];
-	printf("max index = %d\n", max_lis_ix);
+	printf("MAX LEN = %d\n", d[max_lis_ix]);
 	i = d[max_lis_ix] - 1;
 	int pos = max_lis_ix;
 	lis_restored->array[i] = s_arr[pos];
