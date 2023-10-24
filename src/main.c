@@ -14,11 +14,12 @@ int main(int argc, char *argv[])
 	printf("stack A\n");
 	print_stack(&twix.a);
 
-	printf("lis len: %d\n", lis(&twix.a)->length);
-	//num_of_ops = push_swap(&twix);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("Num of steps: %d\n", num_of_ops);
+	int sum = clean(&twix);
+	printf("stack A\n");
+	print_stack(&twix.a);
+	printf("stack B\n");
+	print_stack(&twix.b);
+	printf("steps: %d\n", sum);
 
 	return (0);
 }

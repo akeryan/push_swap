@@ -67,17 +67,15 @@ int search_for_insertion_location(Stack *stack, int val) {
 int push_swap(Twix *twix) {
 	int *rotations;
 	int sum;
-	//int *lis_a; // 'lis' in stack 'a'
-
-	//lis_a = lis(&twix->a);
-	//clean(&twix->a, lis_a);
-
 
 	sum = 0;
-	while(twix->a.length > 0) {
-		pb(twix);
-		sum++;
-	}
+	sum += clean(twix);
+
+
+	//while(twix->a.length > 0) {
+		//pb(twix);
+		//sum++;
+	//}
 	
 	while(twix->b.length > 0) {
 		//loc = search_for_insertion_location(&twix->a, twix->b.top->data);
@@ -90,7 +88,29 @@ int push_swap(Twix *twix) {
 }
 
 
-//void clean(Stack stack, lis_a);
+int clean(Twix *twix) {
+	Int_array *lis_a; // 'lis' in stack 'a'
+	int sum;
+	int i;
+
+	sum = 0;
+	i = 0;
+	lis_a = lis(&twix->a);
+	while(i < lis_a->length) {
+		if(twix->a.top->data != lis_a->array[i]) {
+			pb(twix);
+			sum++;
+		} else {
+			ra(twix);
+			sum++;
+			i++;
+			continue;
+		}
+		if(twix->a.top->next == twix->a.top)
+			break;
+	}
+	return sum;
+}
  
 int *cheapest_push(Stack *stack_a, Stack *stack_b) {
 	int i;

@@ -21,7 +21,7 @@ Int_array *lis(Stack *stack) {
 		exit(1);
 	}
 
-// copy stack to the s_arr array
+	// copy stack to the s_arr array
 	i = 0;
 	i_node = stack->top;
 	while(1) {
@@ -31,7 +31,7 @@ Int_array *lis(Stack *stack) {
 		i_node = i_node->next;
 	}
 
-// initialize 'd' and 'p' arrays
+	// initialize 'd' and 'p' arrays
 	i = 0;
 	while(i < s_len) {
 		d[i] = 1;
@@ -39,7 +39,7 @@ Int_array *lis(Stack *stack) {
 		i++;
 	}
 
- // calculate 'lis' for each i (0-n) and save in 'p' array under corresponding inex 'i'
+	 // calculate 'lis' for each i (0-n) and save in 'p' array under corresponding inex 'i'
 	i = 0;
 	i_node = stack->top;
 	while(i < s_len) {
@@ -85,15 +85,15 @@ Int_array *lis(Stack *stack) {
 	printf("max index = %d\n", max_lis_ix);
 	i = d[max_lis_ix] - 1;
 	int pos = max_lis_ix;
-	lis_restored->array[i] = pos;
+	lis_restored->array[i] = s_arr[pos];
 	while(p[pos] != -1) {
-		lis_restored->array[--i] = p[pos];
+		lis_restored->array[--i] = s_arr[p[pos]];
 		pos = p[pos];
 	}
 
 	i = 0;
 	while(i < d[max_lis_ix]) {
-		printf("r[%d]: %d\n", i, s_arr[lis_restored->array[i]]);
+		printf("r[%d]: %d\n", i, lis_restored->array[i]);
 		i++;
 	}
 
