@@ -1,19 +1,21 @@
 #include "../include/push_swap.h"
 
-//longest increasing subsequence
-int lis(Stack *stack) {
+// 'lis' - longest increasing subsequence
+int *lis(Stack *stack) {
 	int i;
 	int j;
-	int *d;
-	int *p;
+	int *d;// d[i] is the length of the 'lis' that ends at the s_arr[i] 
+	int *p;// p[i] is the index j of the second last element in 'lis' ending in 'i'. 
 	int *s_arr; //stack_array: array for keeping the stack
-	//int *lis_ix;
-	int max_lis_len;
+	int *lis_restored; //array to keep restored 'lis'
+	int s_len; //stack length
+	int max_lis_ix; //index of maximum value in 'd'
 	Node *i_node;
 	
-	s_arr = (int*)ft_calloc(stack->length, sizeof(int));
-	d = (int*)ft_calloc(stack->length, sizeof(int));
-	p = (int*)ft_calloc(stack->length, sizeof(int));
+	s_len = stack->length;
+	s_arr = (int*)ft_calloc(s_len, sizeof(int));
+	d = (int*)ft_calloc(s_len, sizeof(int)); 
+	p = (int*)ft_calloc(s_len, sizeof(int));
 	if(!d || !p || !s_arr) {
 		fprintf(stderr, "Error - lis(): Allocation of memory has failed\n");
 		exit(0);
@@ -31,7 +33,7 @@ int lis(Stack *stack) {
 
 // initialize 'd' and 'p' arrays
 	i = 0;
-	while(i < stack->length) {
+	while(i < s_len) {
 		d[i] = 1;
 		p[i] = -1;
 		i++;
@@ -40,7 +42,7 @@ int lis(Stack *stack) {
  // calculate 'lis' for each i (0-n) and save in 'p' array under corresponding inex 'i'
 	i = 0;
 	i_node = stack->top;
-	while(i < stack->length) {
+	while(i < s_len) {
 		j = 0;
 		while(j < i) {
 			if(s_arr[j] < s_arr[i] && d[i] < d[j] + 1) {
@@ -54,36 +56,48 @@ int lis(Stack *stack) {
 	
 	// print values of array 'd'
 	i = 0;
-	while(i < stack->length) {
+	while(i < s_len) {
 		printf("d[%d]: %d\n", i, d[i]);
 		i++;
 	}
 
-	// find the maximum 'lis' length (max_lis_len) in 'd' array and corresponding index (max_lis_ix)
-    max_lis_len = d[0];
-	int max_lis_ix = 0;
+	//find max_lis_ix 
+    j = d[0];
+	max_lis_ix = 0;
 	i = 0;
-	while(i < stack->length) {
-		if(d[i] > max_lis_len) {
-			max_lis_len = d[i];
+	while(i < s_len) {
+		if(d[i] > j) {
+			j = d[i];
 			max_lis_ix = i;
 		}
 		i++;
 	}
 
 	i = 0;
-	while(i < stack->length) {
+	while(i < s_len) {
 		printf("p[%d]: %d\n", i, p[i]);
 		i++;
 	}
 
-	//lis_ix = (int *)ft_calloc(max_len, sizeof(int));
-	//printf("max index = %d\n", max_index);
-	//i = max_index - 1;
-	//int pos = max_index;
-	////lis_ix[i--] = d[max_index];
-	//while(d[i] != 1) {
-		//lis_ix[i] = a[pos];
-	//}
-    return max_lis_len;
+	lis_restored = (int *)ft_calloc(d[max_lis_ix], sizeof(int));
+	printf("max index = %d\n", max_lis_ix);
+	i = d[max_lis_ix] - 1;
+	int pos = max_lis_ix;
+	lis_restored[i] = pos;
+	while(p[pos] != -1) {
+		lis_restored[--i] = p[pos];
+		pos = p[pos];
+	}
+
+	i = 0;
+	while(i < d[max_lis_ix]) {
+		printf("r[%d]: %d\n", i, s_arr[lis_restored[i]]);
+		i++;
+	}
+
+	free(s_arr);
+	free(d);
+	free(p);
+
+    return lis_restored;
 }

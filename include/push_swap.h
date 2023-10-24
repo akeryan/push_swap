@@ -70,6 +70,6 @@ int *cheapest_push(Stack *stack_a, Stack *stack_b);
 int sumup_rotations(int *rots);
 
 //lis
-int lis(Stack *stack);
+int *lis(Stack *stack);
 
 #endif
