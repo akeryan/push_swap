@@ -5,6 +5,7 @@ BUILD_DIR = build
 BIN_DIR = bin
 LIBFT_DIR = libft
 FLAGS = -g -Wall -Wextra -Werror
+PUSH_SWAP_H = include/push_swap.h
 
 #List of source files
 SRCS = $(wildcard $(SRC_DIR)/*.c)
@@ -20,7 +21,7 @@ all: libft_build $(EXECUTABLE)
 $(EXECUTABLE): $(OBJS) 
 	$(CC) $(FLAGS) -o $@ $(OBJS) -L$(LIBFT_DIR) -lft
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c| $(BUILD_DIR)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(PUSH_SWAP_h) | $(BUILD_DIR)
 	$(CC) $(FLAGS) -I$(INCLUDE_DIR) -c -o $@ $<
 
 libft_build:
