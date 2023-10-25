@@ -10,13 +10,12 @@ int main(int argc, char *argv[])
 	printf("stack A\n");
 	print_stack(&twix.a);
 
-	Node *a = min_element_in_stack(&twix.a);
-	//Node *a = is_pseudo_sorted(&twix.a);
+	Node *a = is_pseudo_sorted(&twix.a);
 
-	if(a != NULL)
+	if(a != NULL){
+		printf("SORTED\n");
 		printf("Min element: %d\nPos: %d\n", a->data, a->pos);
-	else
-		printf("PSEUDO SORTED\n");
+	} else printf("NOT SORTED");
 	//printf("CLEAN()\n");
 	//sum = clean(&twix);
 
