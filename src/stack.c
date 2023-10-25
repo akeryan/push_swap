@@ -165,26 +165,26 @@ void update_positions(Stack *stack) {
 
 // works correctly only if the stack is sorted in an ascending order
 int balance(Twix *twix) {
-	Node *this_node;
-	int i;
+	Node *foo;
+	int pos;
 	int sum;
 
-	i = 0;
+	foo = is_pseudo_sorted(&twix->a);
+	printf("foo->data: %d\n", foo->data);
+	printf("foo->pos: %d\n", foo->pos);
+	
+	if(foo == NULL)
+		return (-1);
+	pos = foo->pos;
 	sum = 0;
-	this_node = twix->a.top;
-
-	while(this_node->data < this_node->next->data) {
-		i++;
-		this_node = this_node->next;
-	}
-	if(i < twix->a.length/2)
-		while(i-- >= 0) {
+	if(pos < twix->a.length/2)
+		while(pos-- >= 0) {
 			ra(twix);
 			sum++;
 		}
 	else {
-		i = twix->a.length - i - 1;
-		while(i-- > 0) {
+		pos = twix->a.length - pos;
+		while(pos-- > 0) {
 			rra(twix);
 			sum++;
 		}

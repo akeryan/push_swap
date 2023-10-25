@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	//int sum;
+	int sum;
 	Twix twix;
 	init_twix(&twix);
 	 
@@ -10,20 +10,16 @@ int main(int argc, char *argv[])
 	printf("stack A\n");
 	print_stack(&twix.a);
 
-	Node *a = is_pseudo_sorted(&twix.a);
-
-	if(a != NULL){
-		printf("SORTED\n");
-		printf("Min element: %d\nPos: %d\n", a->data, a->pos);
-	} else printf("NOT SORTED");
+	sum = balance(&twix);
+	printf("sum = %d\n", sum);
 	//printf("CLEAN()\n");
 	//sum = clean(&twix);
 
 	//sum = push_swap(&twix);
 	//printf("steps after push_swap: %d\n", sum);
 	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
+	printf("stack A\n");
+	print_stack(&twix.a);
 	//sum += balance(&twix);
 
 	//printf("FINAL OUTPUT\n");
