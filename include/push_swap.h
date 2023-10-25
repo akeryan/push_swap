@@ -83,5 +83,6 @@ Int_array *lis(Stack *stack);
 //sorting
 int is_sorted(Node *start); 
 Node *is_pseudo_sorted(Stack *stack);
+Node *min_element_in_stack(Stack *stack);
 
 #endif
