@@ -10,7 +10,8 @@ int main(int argc, char *argv[])
 	printf("stack A\n");
 	print_stack(&twix.a);
 
-	sum = balance(&twix);
+	Node *min = is_pseudo_sorted(&twix.a);
+	sum = balance(&twix, min);
 	printf("sum = %d\n", sum);
 	//printf("CLEAN()\n");
 	//sum = clean(&twix);

@@ -164,15 +164,11 @@ void update_positions(Stack *stack) {
 }
 
 // works correctly only if the stack is sorted in an ascending order
-int balance(Twix *twix) {
-	Node *foo;
+// 'foo' pointer shows the node from which the stack should be balanced
+int balance(Twix *twix, Node *foo) {
 	int pos;
 	int sum;
 
-	foo = is_pseudo_sorted(&twix->a);
-	printf("foo->data: %d\n", foo->data);
-	printf("foo->pos: %d\n", foo->pos);
-	
 	if(foo == NULL)
 		return (-1);
 	pos = foo->pos;
