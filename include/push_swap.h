@@ -80,4 +80,7 @@ int clean(Twix *twix);
 //lis
 Int_array *lis(Stack *stack);
 
+//sorting
+int is_sorted(Node *start); 
+
 #endif
