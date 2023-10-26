@@ -4,7 +4,6 @@
 int search_for_insertion_location(Stack *stack, int val) {
 	Node *this_node;
 	Node *max_val_node;
-	//Node *min_val_node;
 	int i;
 
 	if(!stack)
@@ -14,64 +13,27 @@ int search_for_insertion_location(Stack *stack, int val) {
 
 	i = 0;
 	max_val_node = stack->top;
-	//min_val_node = stack->top;
 	this_node = stack->top;
 	while(i++ < stack->length) {
 		if(val < this_node->data && val > this_node->prev->data)
 			return (this_node->pos);
 		if(max_val_node->data > this_node->data)
 			max_val_node = this_node;
-		//if(min_val_node->data < this_node->data)
-			//min_val_node = this_node;
 		this_node = this_node->next;
 	}
 	return max_val_node->pos;
 	//return 0;
 }
 
-
-
-/*	- Calculates 'scores' for each of the elements of the stack_b and stores them 
-	in the array under an indeces, which corresponds to the position of an element 
-	in the stack, e.g. the 'score' of the n-th element of the stack will be saved
-	in the array under the index 'n'.
-	- Stack 'a' accepts element from 'b'
-	- Scores are calculated considering six cases: see description of stacks_rotation_options()
-	- Each of the above cases also may assumes zero movement */
-
-//int *calculate_scores(Stack *stack_a, Stack *stack_b) {
-	//int len;
-	//int ins_loc; //insertion location in the stack 'a'
-	//Node *this_node;
-
-	//len = 0;
-	//this_node = stack_b->top;
-	//while(len < stack_b->length) {
-		//ins_loc = search_for_insertion_location(stack_a, this_node->data);
-		//calculate_score(ins_loc, this_node->pos, stack_a->length, stack_b->length);
-	//}
-
-//}
-
-/*	- This function calculates and returns the 'score' (which is the minimal 
-	number of 'steps' that needs to be done in order to place an alement that
-	'seats' at the location 'loc_b' in stack_b into a location loc_a of the stack 'a')
-	- loc_a is the location in stack 'a' where a value needs to be placed
-	- loc_b is the location of the value in stack_b that needs to be placed into stack_a
-	- len_a is the length of the stack_a
-	- len_b is the length of the stack _b
-*/
-//int calculate_score(int loc_a, int loc_b, int len_a, int len_b) {
-
-//}
-
+//manages the whole process of the push_swap program
 int push_swap(Twix *twix) {
 	Node *min;
-	int *rotations;
 	int steps;
 	
-	//if(twix->a.length == 3)
-		//return mini_sort(twix);
+	if(twix->a.length == 3)
+		return (three_sort(twix));
+	if(twix->a.length == 5)
+		return (five_sort(twix));
 
 	min = is_pseudo_sorted(&twix->a);
 	if(min)
@@ -84,21 +46,19 @@ int push_swap(Twix *twix) {
 	printf("Stack B\n");
 	print_stack(&twix->b);
 
-	while(twix->b.length > 0) {
-		rotations = cheapest_push(&twix->a, &twix->b);
-		steps += ps_push(twix, rotations);
-	}
+	steps += inject_back(twix);
 
 	min = is_pseudo_sorted(&twix->a);
 	if(min)
-		steps = balance(twix, min);
+		steps += balance(twix, min);
 
 	return (steps);
 }
 
-//if the stack is not pseudo-sorted it can be passed to 'clean' function
-//in order to keep only subsequence that is sorted (in an ascending order)
-//the rest of the elements are pushed to the stack 'b'
+/*	if the twix->a is not pseudo-sorted it can be passed to 'clean' function
+	in order to keep only a subsequence that is sorted (in an ascending order)
+	the rest of the elements are pushed to the stack 'b'
+*/
 int clean(Twix *twix) {
 	Int_array *lis_a; // 'lis' in stack 'a'
 	int sum;
@@ -107,14 +67,16 @@ int clean(Twix *twix) {
 	sum = 0;
 	i = 0;
 	lis_a = lis(&twix->a);
-	while(i < lis_a->length) {
-		if(twix->a.top->data != lis_a->array[i]) {
-			pb(twix);
-			sum++;
-		} else {
-			ra(twix);
-			sum++;
-			i++;
+	if(lis_a->length > 1) {
+		while( i < lis_a->length) {
+			if(twix->a.top->data != lis_a->array[i]) {
+				pb(twix);
+				sum++;
+			} else {
+				ra(twix);
+				sum++;
+				i++;
+			}
 		}
 	}
 	while(twix->a.length > lis_a->length) {
@@ -124,27 +86,32 @@ int clean(Twix *twix) {
 	free(lis_a);
 	return sum;
 }
- 
+
+/*	searches for an element in stack 'b' that 'costs' the least to push to stack 'a'
+	in terms of number of operations (e.g. ra, rr, ...)
+*/
 int *cheapest_push(Stack *stack_a, Stack *stack_b) {
-	int i;
 	int loc;
 	int min_ops;
 	Node *this_node;
 	Node *cheap_node;
 	int *rotations;
+	int steps_count;
 
-	i = 0;
 	this_node = stack_b->top;
 	cheap_node = stack_b->top;
 	min_ops = INT_MAX;
 
-	while(++i < stack_b->length) {
+	while(42) {
 		loc = search_for_insertion_location(stack_a, this_node->data);
 		rotations = rotation_options(loc, this_node->pos, stack_a->length, stack_b->length);
-		if(sumup_rotations(rotations) < min_ops) {
-			min_ops = sumup_rotations(rotations);
+		steps_count = sumup_rotations(rotations); 
+		if(steps_count < min_ops) {
+			min_ops = steps_count; 
 			cheap_node = this_node;
 		}
+		if(this_node->next == stack_b->top)
+			break;
 		this_node = this_node->next;
 	}
 	loc = search_for_insertion_location(stack_a, cheap_node->data);
@@ -152,6 +119,7 @@ int *cheapest_push(Stack *stack_a, Stack *stack_b) {
 	return rotations;
 }
 
+// just sums up all the values in an array pointed by 'rots'
 int sumup_rotations(int *rots) {
 	int i;
 	int sum;
@@ -165,7 +133,11 @@ int sumup_rotations(int *rots) {
 	return (sum);
 }
 
-int ps_push(Twix *twix, int *steps) {
+/*	Implements execution of operations (e.g. ra, rr, ...) in accordance with 
+	the instruction listed in 'actions' array
+*/
+
+int ps_push(Twix *twix, int *actions) {
 	int i;
 	int j;
 	int sum; //keeps number of operations performed
@@ -176,7 +148,7 @@ int ps_push(Twix *twix, int *steps) {
 	sum = 0;
 	while(i < STEPS) {
 		j = 0;
-		while(j < steps[i])	{
+		while(j < actions[i])	{
 			operation[i](twix);
 			j++;
 		}

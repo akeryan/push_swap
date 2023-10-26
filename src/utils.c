@@ -39,12 +39,14 @@ size_t	my_strlen(const char *str)
 	return (len);
 }
 
+//	returns the minimal out of the two values
 int min(int a, int b) {
 	if(a < b)
 		return a;
 	return b;
 }
 
+//	returns the maximal out of the two values
 int max(int a, int b) {
 	if(a > b)
 		return a;

@@ -1,5 +1,6 @@
 #include "../include/push_swap.h"
 
+// initializes 'Stack' structure
 void init_stack(Stack *stack)
 {
 	if (!stack)
@@ -11,6 +12,7 @@ void init_stack(Stack *stack)
 	stack->top = NULL;
 }
 
+// Creates and returns a variable of type Node and allocates memory for it
 Node *malloc_node() {
 	Node *new_node = (Node *)malloc(sizeof(Node));
 	if (!new_node) {
@@ -23,6 +25,7 @@ Node *malloc_node() {
 	return new_node;
 }
 
+// prints values of 'stack' into a terminal
 void print_stack(Stack *stack) {
 	if(!stack) {
 		fprintf(stderr, "Error - pring_stack(): stack is NULL\n");
@@ -43,6 +46,7 @@ void print_stack(Stack *stack) {
 	}
 }
 
+// checks wheter 'stack' is empty or not
 bool is_empty(Stack *stack)
 {
 	if (!stack)
@@ -53,15 +57,7 @@ bool is_empty(Stack *stack)
 	return (stack->top == NULL);
 }
 
-//int stack_length(Stack *stack) {
-	//if (!stack) {
-		//fprintf(stderr, "Error - stack_length(): stack is null");
-		//exit(1);
-	//}
-
-	//return (stack->length);	
-//}
-
+// pushes element 'value' on top of 'stack'
 void push(Stack *stack, int value)
 {
 	if (!stack) {
@@ -93,6 +89,7 @@ void push(Stack *stack, int value)
 	update_positions(stack);
 }
 
+// pops and returns the value from the top node of the 'stack'
 int pop(Stack *stack)
 {
 	int value;
@@ -130,6 +127,7 @@ int pop(Stack *stack)
 	return value;
 }
 
+// returns the value from the top of the 'stack' without popping it
 int peek(Stack *stack)
 {
 	if (stack == NULL)
@@ -147,6 +145,7 @@ int peek(Stack *stack)
 	return (stack->top->data);
 }
 
+// after the operations 'push' or 'pop' updates the positions of the remaining nodes
 void update_positions(Stack *stack) {
 	Node *this_node;
 	int i;
@@ -174,8 +173,8 @@ int balance(Twix *twix, Node *foo) {
 		return (-1);
 	pos = foo->pos;
 	sum = 0;
-	if(pos < twix->a.length/2)
-		while(pos > 0) {
+	if(pos <= twix->a.length/2)
+		while(pos-- > 0) {
 			ra(twix);
 			sum++;
 		}

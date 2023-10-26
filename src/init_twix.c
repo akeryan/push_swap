@@ -1,5 +1,6 @@
 #include "../include/push_swap.h"
 
+// initializes the 'twix' structure
 void init_twix(Twix *twix) {
 	if(!twix) {
 		fprintf(stderr, "Error (twix.c): twix is NULL\n");

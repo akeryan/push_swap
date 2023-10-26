@@ -1,5 +1,6 @@
 #include "../include/push_swap.h"
 
+// parses all the input values, meaning checks the validity of input values 
 void parsing(int argc, char **argv, Stack *a) {
 	char **arg;
 	int i;
@@ -26,6 +27,7 @@ void parsing(int argc, char **argv, Stack *a) {
 	}
 }
 
+//checks each value of '**str' and if valid pushes to the 'stack'
 void check_and_push(char **str, Stack *stack) {
 	int push_candidate_number;
 	int i = 0;
@@ -46,6 +48,7 @@ void check_and_push(char **str, Stack *stack) {
 	}
 }
 
+//cheks whether value 'a' already present in 'stack'
 int is_duplicate(Stack *stack, int a) {
 	Node *current_node;
 

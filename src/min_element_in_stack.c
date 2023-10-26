@@ -1,5 +1,6 @@
 #include "../include/push_swap.h"
 
+// searches for and returns the minimal element of the 'stack'
 Node *min_element_in_stack(Stack *stack) {
 	Node *this;
 	Node *min;

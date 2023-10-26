@@ -41,7 +41,6 @@ int is_duplicate(Stack *stack, int a);
 void init_stack(Stack *stack);
 Node *malloc_node();
 bool is_empty(Stack *stack);
-//int stack_length(Stack *stack);
 void print_stack(Stack *stack);
 void push(Stack *stack, int value);
 int pop(Stack *stack);
@@ -76,6 +75,7 @@ int ps_push(Twix *twix, int *steps);
 int *cheapest_push(Stack *stack_a, Stack *stack_b);
 int sumup_rotations(int *rots);
 int clean(Twix *twix);
+int inject_back(Twix *twix);
 
 //lis
 Int_array *lis(Stack *stack);
@@ -84,6 +84,7 @@ Int_array *lis(Stack *stack);
 int is_sorted(Node *start); 
 Node *is_pseudo_sorted(Stack *stack);
 Node *min_element_in_stack(Stack *stack);
-int mini_sort(Twix *twix);
+int three_sort(Twix *twix);
+int five_sort(Twix *twix);
 
 #endif

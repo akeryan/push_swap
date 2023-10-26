@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	int steps;
+	int Steps;
 	Twix twix;
 	init_twix(&twix);
 	 
@@ -10,12 +10,12 @@ int main(int argc, char *argv[])
 	printf("stack A\n");
 	print_stack(&twix.a);
 
-	steps = push_swap(&twix);
-	printf("steps after push_swap: %d\n", steps);
+	Steps = push_swap(&twix);
+	printf("steps after push_swap: %d\n", Steps);
 	printf("PUSH_SWAP()\n");
 	printf("stack A\n");
 	print_stack(&twix.a);
-	printf("steps: %d\n", steps);
+	printf("steps: %d\n", Steps);
 
 	return (0);
 }
