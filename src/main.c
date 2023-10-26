@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	//int sum;
+	int steps;
 	Twix twix;
 	init_twix(&twix);
 	 
@@ -10,24 +10,12 @@ int main(int argc, char *argv[])
 	printf("stack A\n");
 	print_stack(&twix.a);
 
-	//sum = mini_sort(&twix);
-
-	//printf("steps: %d\n", sum);
-	
-	//printf("CLEAN()\n");
-	//sum = clean(&twix);
-
-	//sum = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", sum);
-	//printf("PUSH_SWAP()\n");
+	steps = push_swap(&twix);
+	printf("steps after push_swap: %d\n", steps);
+	printf("PUSH_SWAP()\n");
 	printf("stack A\n");
 	print_stack(&twix.a);
-	//sum += balance(&twix);
-
-	//printf("FINAL OUTPUT\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", sum);
+	printf("steps: %d\n", steps);
 
 	return (0);
 }

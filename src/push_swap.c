@@ -1,9 +1,10 @@
 #include "../include/push_swap.h"
 
+//searches in 'stack' the correct position where to place 'val'
 int search_for_insertion_location(Stack *stack, int val) {
 	Node *this_node;
 	Node *max_val_node;
-	Node *min_val_node;
+	//Node *min_val_node;
 	int i;
 
 	if(!stack)
@@ -13,15 +14,15 @@ int search_for_insertion_location(Stack *stack, int val) {
 
 	i = 0;
 	max_val_node = stack->top;
-	min_val_node = stack->top;
+	//min_val_node = stack->top;
 	this_node = stack->top;
 	while(i++ < stack->length) {
 		if(val < this_node->data && val > this_node->prev->data)
 			return (this_node->pos);
 		if(max_val_node->data > this_node->data)
 			max_val_node = this_node;
-		if(min_val_node->data < this_node->data)
-			min_val_node = this_node;
+		//if(min_val_node->data < this_node->data)
+			//min_val_node = this_node;
 		this_node = this_node->next;
 	}
 	return max_val_node->pos;
@@ -65,27 +66,39 @@ int search_for_insertion_location(Stack *stack, int val) {
 //}
 
 int push_swap(Twix *twix) {
+	Node *min;
 	int *rotations;
-	int sum;
+	int steps;
+	
+	//if(twix->a.length == 3)
+		//return mini_sort(twix);
+
+	min = is_pseudo_sorted(&twix->a);
+	if(min)
+		return(balance(twix, min));
 
 	printf("CLEAN\n\n");
-	sum = clean(twix);
+	steps = clean(twix);
 	printf("Stack A\n");
 	print_stack(&twix->a);
 	printf("Stack B\n");
 	print_stack(&twix->b);
 
 	while(twix->b.length > 0) {
-		//loc = search_for_insertion_location(&twix->a, twix->b.top->data);
-		//rotations = rotation_options(loc, 0, twix->a.length, twix->b.length);
 		rotations = cheapest_push(&twix->a, &twix->b);
-		sum += ps_push(twix, rotations);
+		steps += ps_push(twix, rotations);
 	}
 
-	return (sum);
+	min = is_pseudo_sorted(&twix->a);
+	if(min)
+		steps = balance(twix, min);
+
+	return (steps);
 }
 
-
+//if the stack is not pseudo-sorted it can be passed to 'clean' function
+//in order to keep only subsequence that is sorted (in an ascending order)
+//the rest of the elements are pushed to the stack 'b'
 int clean(Twix *twix) {
 	Int_array *lis_a; // 'lis' in stack 'a'
 	int sum;

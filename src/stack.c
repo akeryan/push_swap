@@ -164,7 +164,8 @@ void update_positions(Stack *stack) {
 }
 
 // works correctly only if the stack is sorted in an ascending order
-// 'foo' pointer shows the node from which the stack should be balanced
+// 'foo' pointer shows the node from which the stack should be balanced and 
+// can be identified with help of is_pseudo_sorted() function
 int balance(Twix *twix, Node *foo) {
 	int pos;
 	int sum;
@@ -174,7 +175,7 @@ int balance(Twix *twix, Node *foo) {
 	pos = foo->pos;
 	sum = 0;
 	if(pos < twix->a.length/2)
-		while(pos-- >= 0) {
+		while(pos > 0) {
 			ra(twix);
 			sum++;
 		}

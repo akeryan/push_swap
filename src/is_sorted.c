@@ -15,7 +15,7 @@ int is_sorted(Node *start) {
 		return (1); //only one element, meaning it is sorted
 
 	this = start;
-	while(1) {
+	while(42) {
 		if(this->next == start) 
 			break;
 		if(this->data > this->next->data)
