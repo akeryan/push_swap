@@ -10,7 +10,6 @@ void parsing(int argc, char **argv, Stack *a) {
 	}
 
 	if (argc < 2) {
-		fprintf(stderr, "Error - parsing(): not enough argumetns");
 		exit(1);
 	}
 
@@ -29,20 +28,21 @@ void parsing(int argc, char **argv, Stack *a) {
 
 void check_and_push(char **str, Stack *stack) {
 	int push_candidate_number;
-	char **this_elem;
-
-	this_elem = --str;
-	while(*++this_elem);
-	while (--this_elem != str) {
-		push_candidate_number = ft_atoi(*this_elem);
-		if (ft_strlen(ft_itoa(push_candidate_number)) != my_strlen(*this_elem)) {
-			printf("Error - check_and_push(): is not a valid input: '%s'\n", *this_elem);
+	int i = 0;
+	while(str[i] != NULL)
+		i++;
+	while (42) {
+		push_candidate_number = ft_atoi(str[--i]);
+		if (ft_strlen(ft_itoa(push_candidate_number)) != my_strlen(str[i])) {
+			printf("Error\n");
 			exit(1);
 		}
 		if(!is_duplicate(stack, push_candidate_number)) {
 			push(stack, push_candidate_number);
 		} else
 			exit(0);
+		if(i == 0)
+			break;
 	}
 }
 
@@ -50,23 +50,21 @@ int is_duplicate(Stack *stack, int a) {
 	Node *current_node;
 
 	if(!stack){
-		printf("Error - is_there_duplicates(): stack is NULL\n");
+		printf("Error - is_duplicates(): stack is NULL\n");
 		exit(0);
 	}
 
 	if(!stack->top)
 		return (0);
-	if(stack->top->data == a) {
-		printf("Error - is_there_duplicate(): there is a duplicate: %d\n", a);
-		return (1);
-	}
 		
 	current_node = stack->top;
-	while(current_node->next != stack->top) {
-		if(current_node->next->data == a) {
-			printf("Error - is_there_duplicate(): there is a duplicate: %d\n", a);
+	while(42) {
+		if(current_node->data == a) {
+			printf("Error (duplicate): %d\n", a);
 			return (1);
 		}
+		if(current_node->next == stack->top)
+			break;
 		current_node = current_node->next;
 	}
 	return (0);
