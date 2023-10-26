@@ -22,14 +22,7 @@ Int_array *lis(Stack *stack) {
 	}
 
 	// copy stack to the s_arr array
-	i = 0;
-	i_node = stack->top;
-	while(1) {
-		s_arr[i++] = i_node->data;
-		if(i_node->next == stack->top)
-			break;
-		i_node = i_node->next;
-	}
+	s_arr = stack_to_array(stack);
 
 	// initialize 'd' and 'p' arrays
 	i = 0;
@@ -88,4 +81,25 @@ Int_array *lis(Stack *stack) {
 	free(p);
 
     return lis_restored;
+}
+
+/*	- copies elements of the 'stack' to array and returns it
+	- memmory for the array is allocated
+*/
+int *stack_to_array(Stack *stack) {
+	int *arr;
+	int i;
+	Node *i_node;
+
+	arr = (int*)ft_calloc(stack->length, sizeof(int));
+	if(!arr)
+		return (NULL);
+	i = 0;
+	i_node = stack->top;
+	while(i < stack->length) {
+		arr[i] = i_node->data;
+		i_node = i_node->next;
+		i++;
+	}
+	return (arr);
 }

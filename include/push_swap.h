@@ -79,6 +79,7 @@ int inject_back(Twix *twix);
 
 //lis
 Int_array *lis(Stack *stack);
+int *stack_to_array(Stack *stack);
 
 //sorting
 int is_sorted(Node *start); 
