@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   three_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:51:09 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/27 09:54:57 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 11:03:13 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int main(int argc, char *argv[])
-{
+// sorting algorithm for input of length 3
+int three_sort(Twix *twix) {
+	Node *temp;
 	int steps;
-	Twix twix;
 
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-
-	steps = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", Steps);
-	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", Steps);
-
-	return (0);
+	temp = is_pseudo_sorted(&twix->a);
+	if(temp != NULL)
+		return (balance(twix, temp));
+	sa(twix);
+	steps = 1;
+	steps += balance(twix, is_pseudo_sorted(&twix->a));
+	return (steps);
 }
-
-

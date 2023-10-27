@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   peek.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:51:09 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/27 11:19:19 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 11:19:23 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int main(int argc, char *argv[])
+// returns the value from the top of the 'stack' without popping it
+int peek(Stack *stack)
 {
-	int steps;
-	Twix twix;
+	if (stack == NULL)
+	{
+		fprintf(stderr, "Error - peek(): stack is null");
+		exit(1);
+	}
 
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
+	if (is_empty(stack))
+	{
+		fprintf(stderr, "Error - peek(): Stack is empty\n");
+		exit(1);
+	}
 
-	steps = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", Steps);
-	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", Steps);
-
-	return (0);
+	return (stack->top->data);
 }
-
-

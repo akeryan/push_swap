@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:51:09 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/27 09:53:54 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 11:10:40 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
 
-int main(int argc, char *argv[])
-{
-	int steps;
-	Twix twix;
+#include "../../include/push_swap.h"
+//rrb (reverse rotate b): Shift down all elements of stack a by 1. The last element becomes the first one.
+int rrb(Twix *twix) {
+	if(!twix)
+		return (1);
 
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
+	twix->b.top = twix->b.top->prev;
+	update_positions(&twix->b);
 
-	steps = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", Steps);
-	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", Steps);
-
-	return (0);
+	if(PRINT == 1)
+		printf("rrb\n");
+	return (0);	
 }
-
-

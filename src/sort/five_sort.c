@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   five_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:51:09 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/27 11:02:29 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 11:02:31 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int main(int argc, char *argv[])
-{
+// sorting algorithm for input of length 5
+int five_sort(Twix *twix) {
 	int steps;
-	Twix twix;
+	Node *pos;
 
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-
-	steps = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", Steps);
-	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", Steps);
-
-	return (0);
+	pb(twix);
+	pb(twix);
+	steps = three_sort(twix);
+	steps += inject_back(twix);
+	pos = is_pseudo_sorted(&twix->a);
+	if(pos)
+		steps += balance(twix, pos);
+	return (steps);
 }
-
-

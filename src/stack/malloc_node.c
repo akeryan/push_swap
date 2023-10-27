@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   malloc_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:51:09 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/27 11:16:07 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 11:16:10 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int main(int argc, char *argv[])
-{
-	int steps;
-	Twix twix;
-
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-
-	steps = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", Steps);
-	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", Steps);
-
-	return (0);
+// Creates and returns a variable of type Node and allocates memory for it
+Node *malloc_node() {
+	Node *new_node = (Node *)malloc(sizeof(Node));
+	if (!new_node) {
+		fprintf(stderr, "Error - malloc_node(): Allocation for new node failed\n");
+		exit(1);
+	}
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	new_node->data = 0;
+	return new_node;
 }
-
-

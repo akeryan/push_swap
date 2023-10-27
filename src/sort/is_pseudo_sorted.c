@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_pseudo_sorted.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:51:09 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/27 11:02:14 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 11:02:16 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int main(int argc, char *argv[])
-{
-	int steps;
-	Twix twix;
+/*	- checks whether 'stack' is pseudo-sorted
+	- pseudo-sorted means that since 'stack' is a circular linked list, 
+	it is sorted starting from some element of the stack
+*/
 
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
+Node *is_pseudo_sorted(Stack *stack) {
+	Node *min;
+	int result;
 
-	steps = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", Steps);
-	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", Steps);
-
-	return (0);
+	min = min_element_in_stack(stack);
+	result = is_sorted(min); 
+	if(result == -1 || result == 0) 
+		return (NULL);
+	return (min);
 }
-
-

@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   calc_max_lis_ix.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:51:09 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/27 10:58:32 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 10:58:34 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int main(int argc, char *argv[])
-{
-	int steps;
-	Twix twix;
+// calculates max_lis_ix variable of Lis_vars structure
+void calc_max_lis_ix(Lis_vars *vars, Stack *stack) {
+	int i;
+	int j;
 
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-
-	steps = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", Steps);
-	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", Steps);
-
-	return (0);
+	i = 0;
+    j = vars->d[0];
+	vars->max_lis_ix = 0;
+	while(i < stack->length) {
+		if(vars->d[i] > j) {
+			j = vars->d[i];
+			vars->max_lis_ix = i;
+		}
+		i++;
+	}
 }
-
-

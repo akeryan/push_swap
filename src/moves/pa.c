@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:51:09 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/27 09:52:39 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 11:07:16 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int main(int argc, char *argv[])
-{
-	int steps;
-	Twix twix;
+//pa (push a): Take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
+int pa(Twix *twix) {
+	if(!twix)
+		return(1);
 
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-
-	steps = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", Steps);
-	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", Steps);
+	if(!is_empty(&twix->b))
+		push(&twix->a, pop(&twix->b));
+	else {
+		fprintf(stderr, "Error - pb: stack 'b' is empty\n");
+		exit(1);
+	}
+	if(PRINT == 1)
+		printf("pa\n");
 
 	return (0);
 }
-
-

@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:51:09 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/27 09:54:28 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 11:10:40 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int main(int argc, char *argv[])
-{
-	int steps;
-	Twix twix;
+//sa (swap a): Swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.
+int sb(Twix *twix) {
+	int temp1;
+	int temp2;
 
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	//printf("stack A\n");
-	//print_stack(&twix.a);
+	if(!twix) {
+		fprintf(stderr, "Error - sb(): twix is NULL");
+		exit(1);
+	}
 
-	steps = push_swap(&twix);
-	//printf("steps after push_swap: %d\n", Steps);
-	//printf("PUSH_SWAP()\n");
-	//printf("stack A\n");
-	//print_stack(&twix.a);
-	//printf("steps: %d\n", Steps);
+	temp1 = pop(&twix->b);
+	temp2 = pop(&twix->b);
+	push(&twix->b, temp1);
+	push(&twix->b, temp2);
+			
+	if(PRINT == 1)
+		printf("sb\n");
 
 	return (0);
 }
-
-
