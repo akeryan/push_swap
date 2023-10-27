@@ -31,6 +31,14 @@ typedef struct Int_array {
 	int length; 
 } Int_array;
 
+typedef struct Lis_vars {
+	int *d;	// d[i] is the length of the 'lis' that ends at the s_arr[i] 
+	int *p;	// p[i] is the index j of the second last element in 'lis' ending in 'i'. 
+	int *s_arr; //stack_array: array for keeping the stack
+	int max_lis_ix; //index of maximum value in 'd'
+	Int_array *lis_restored; //array to keep restored 'lis'
+} Lis_vars;
+
 //parsing.c
 void parsing(int argc, char **argv, Stack *stack);
 bool enough_arguments(int argc);
@@ -80,6 +88,10 @@ int inject_back(Twix *twix);
 //lis
 Int_array *lis(Stack *stack);
 int *stack_to_array(Stack *stack);
+int init_lis_vars(Lis_vars *vars, Stack *stack);
+void calc_d_and_p (Lis_vars *vars, Stack *stack);
+void calc_max_lis_ix(Lis_vars *vars, Stack *stack);
+int restore_lis(Lis_vars *vars);
 
 //sorting
 int is_sorted(Node *start); 
