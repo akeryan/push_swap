@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/27 09:52:50 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/27 09:52:53 by akeryan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 // parses all the input values, meaning checks the validity of input values 
@@ -36,7 +48,7 @@ void check_and_push(char **str, Stack *stack) {
 	while (42) {
 		push_candidate_number = ft_atoi(str[--i]);
 		if (ft_strlen(ft_itoa(push_candidate_number)) != my_strlen(str[i])) {
-			printf("Error\n");
+			printf("Error A\n");
 			exit(1);
 		}
 		if(!is_duplicate(stack, push_candidate_number)) {
