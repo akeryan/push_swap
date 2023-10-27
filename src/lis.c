@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:04 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 10:30:15 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:46:58 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int *stack_to_array(Stack *stack) {
 	return (arr);
 }
 
+// initializes Lis_vars structure
 int init_lis_vars(Lis_vars *vars, Stack *stack) {
 	int i;
 
@@ -75,6 +76,7 @@ int init_lis_vars(Lis_vars *vars, Stack *stack) {
 	return (1);
 }
 
+// calculates 'd' and 'p' variables of Lis_vars
 void calc_d_and_p (Lis_vars *vars, Stack *stack) {
 	Node *i_node;
 	int i;
@@ -96,6 +98,7 @@ void calc_d_and_p (Lis_vars *vars, Stack *stack) {
 	}	
 }
  
+// calculates max_lis_ix variable of Lis_vars structure
 void calc_max_lis_ix(Lis_vars *vars, Stack *stack) {
 	int i;
 	int j;
@@ -112,6 +115,7 @@ void calc_max_lis_ix(Lis_vars *vars, Stack *stack) {
 	}
 }
  
+// restores 'lis' 
 int restore_lis(Lis_vars *vars) {
 	int i;
 	int pos;
