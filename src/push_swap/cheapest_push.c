@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:56 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 12:42:59 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 20:17:06 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int *cheapest_push(Stack *stack_a, Stack *stack_b) {
 	while(42) {
 		loc = search_for_insertion_location(stack_a, this_node->data);
 		rotations = rotation_options(loc, this_node->pos, stack_a->length, stack_b->length);
-		steps_count = sumup_rotations(rotations); 
+		steps_count = sumup_array(rotations, STEPS); 
 		if(steps_count < min_ops) {
 			min_ops = steps_count; 
 			cheap_node = this_node;

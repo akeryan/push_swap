@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 10:27:46 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 21:07:37 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,21 @@ void push(Stack *stack, int value);
 int pop(Stack *stack);
 int peek(Stack *stack);
 void update_positions(Stack *stack);
-int balance(Twix *twix, Node *foo);
+void balance(Twix *twix, Node *foo);
 
 //Twix
 void init_twix(Twix *twix);
-int sa(Twix *twix);
-int sb(Twix *twix);
-int ss(Twix *twix);
-int pb(Twix *twix);
-int pa(Twix *twix);
-int ra(Twix *twix);
-int rb(Twix *twix);
-int rr(Twix *twix);
-int rra(Twix *twix);
-int rrb(Twix *twix);
-int rrr(Twix *twix);
+void sa(Twix *twix);
+void sb(Twix *twix);
+void ss(Twix *twix);
+void pb(Twix *twix);
+void pa(Twix *twix);
+void ra(Twix *twix);
+void rb(Twix *twix);
+void rr(Twix *twix);
+void rra(Twix *twix);
+void rrb(Twix *twix);
+void rrr(Twix *twix);
 
 //utils.c
 size_t	my_strlen(const char *str);
@@ -88,14 +88,14 @@ int min(int a, int b);
 int max(int a, int b);
 
 //push_swap
-int push_swap(Twix *twix);
+void push_swap(Twix *twix);
 int search_for_insertion_location(Stack *stack, int val);
 int *rotation_options(int loc_a, int loc_b, int len_a, int len_b);
-int ps_push(Twix *twix, int *steps);
+void ps_push(Twix *twix, int *steps);
 int *cheapest_push(Stack *stack_a, Stack *stack_b);
-int sumup_rotations(int *rots);
+int sumup_array(int *rots, int len);
 int clean(Twix *twix);
-int inject_back(Twix *twix);
+void inject_back(Twix *twix);
 
 //lis
 Int_array *lis(Stack *stack);
@@ -109,7 +109,7 @@ int restore_lis(Lis_vars *vars);
 int is_sorted(Node *start); 
 Node *is_pseudo_sorted(Stack *stack);
 Node *min_element_in_stack(Stack *stack);
-int three_sort(Twix *twix);
-int five_sort(Twix *twix);
+void three_sort(Twix *twix);
+void five_sort(Twix *twix);
 
 #endif

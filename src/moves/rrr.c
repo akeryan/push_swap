@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:54:00 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 11:10:40 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 20:53:29 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #include "../../include/push_swap.h"
 
 //rrr : rra and rrb at the same time.
-int rrr(Twix *twix) {
-	rra(twix);
-	rrb(twix);
+void rrr(Twix *twix) {
+	//rra
+	twix->a.top = twix->a.top->prev;
+	update_positions(&twix->a);
+	//rrb
+	twix->b.top = twix->b.top->prev;
+	update_positions(&twix->b);
 
-	if(PRINT == 1)
-		printf("rrr\n");
-
-	return (0);
+	printf("rrr\n");
 }
