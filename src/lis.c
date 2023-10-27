@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:04 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:51:15 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:30:15 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ Int_array *lis(Stack *stack) {
 		return (NULL);
 
 	i = 0;
-	while(i < vars.d[vars.max_lis_ix]) {
-		printf("r[%d]: %d\n", i, vars.lis_restored->array[i]);
-		i++;
-	}
-
 	free(vars.s_arr);
 	free(vars.d);
 	free(vars.p);
@@ -129,7 +124,6 @@ int restore_lis(Lis_vars *vars) {
 
 	pos = vars->max_lis_ix;
 	i = vars->d[pos] - 1;
-	printf("MAX LEN = %d\n", i);
 	vars->lis_restored->array[i] = vars->s_arr[pos];
 	while(vars->p[pos] != -1) {
 		vars->lis_restored->array[--i] = vars->s_arr[vars->p[pos]];

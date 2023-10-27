@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:50 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:52:53 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:27:19 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void check_and_push(char **str, Stack *stack) {
 	while (42) {
 		push_candidate_number = ft_atoi(str[--i]);
 		if (ft_strlen(ft_itoa(push_candidate_number)) != my_strlen(str[i])) {
-			printf("Error A\n");
+			printf("Error\n");
 			exit(1);
 		}
 		if(!is_duplicate(stack, push_candidate_number)) {
@@ -75,7 +75,7 @@ int is_duplicate(Stack *stack, int a) {
 	current_node = stack->top;
 	while(42) {
 		if(current_node->data == a) {
-			printf("Error (duplicate): %d\n", a);
+			printf("Error\n");
 			return (1);
 		}
 		if(current_node->next == stack->top)

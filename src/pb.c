@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:58 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:53:00 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:23:32 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int pb(Twix *twix) {
 	}
 
 	if(PRINT == 1)
-		printf("pb()\n");
+		printf("pb\n");
 
 	return (0);
 }

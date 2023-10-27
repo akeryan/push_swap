@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:51:48 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:27:46 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define PUSH_SWAP_H
 
 #define STEPS	6
-#define PRINT	0 // '1' - print, '0' - don't print
+#define PRINT	1 // '1' - print, '0' - don't print
 
 #include <stdio.h>
 #include <stdbool.h>

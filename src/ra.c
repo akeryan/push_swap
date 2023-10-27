@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:53:25 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:53:27 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:24:36 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int ra(Twix *twix) {
 	twix->a.top = twix->a.top->next;
 	update_positions(&twix->a);
 	if(PRINT == 1)
-		printf("ra()\n");
+		printf("ra\n");
 	return (0);	
 }

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:55:05 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:55:08 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:26:51 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,18 @@ size_t	my_strlen(const char *str)
 	//skip all the white spaces
 	while (*str== 32 || (*str>= 9 && *str <= 13))
 		str++;
-
 	if (*str == '+' || *str == '-') {
 		if(*str == '-')
 			len++;
 		str++;
 	}
-
 	while(*str == '0') {
 		if(ft_strlen(str) == 1)
 			return (1);
 		str++;
 	}
-	
 	if(!ft_isdigit(*str))
 		len--;
-
 	len += ft_strlen(str);
 
 	return (len);

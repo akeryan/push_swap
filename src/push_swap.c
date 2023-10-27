@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:53:08 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:53:18 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:24:26 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,11 @@ int push_swap(Twix *twix) {
 		return (three_sort(twix));
 	if(twix->a.length == 5)
 		return (five_sort(twix));
-
 	min = is_pseudo_sorted(&twix->a);
 	if(min)
 		return(balance(twix, min));
-
-	printf("CLEAN\n\n");
 	steps = clean(twix);
-	printf("Stack A\n");
-	print_stack(&twix->a);
-	printf("Stack B\n");
-	print_stack(&twix->b);
-
 	steps += inject_back(twix);
-
 	min = is_pseudo_sorted(&twix->a);
 	if(min)
 		steps += balance(twix, min);

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:53:54 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:53:56 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:25:20 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int rrb(Twix *twix) {
 	update_positions(&twix->b);
 
 	if(PRINT == 1)
-		printf("rrb()\n");
+		printf("rrb\n");
 	return (0);	
 }

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:52:17 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:28:13 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int main(int argc, char *argv[])
 	init_twix(&twix);
 	 
 	parsing(argc, argv, &twix.a);
-	printf("stack A\n");
-	print_stack(&twix.a);
+	//printf("stack A\n");
+	//print_stack(&twix.a);
 
 	Steps = push_swap(&twix);
-	printf("steps after push_swap: %d\n", Steps);
-	printf("PUSH_SWAP()\n");
-	printf("stack A\n");
-	print_stack(&twix.a);
-	printf("steps: %d\n", Steps);
+	//printf("steps after push_swap: %d\n", Steps);
+	//printf("PUSH_SWAP()\n");
+	//printf("stack A\n");
+	//print_stack(&twix.a);
+	//printf("steps: %d\n", Steps);
 
 	return (0);
 }

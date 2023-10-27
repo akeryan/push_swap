@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:54:17 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 09:54:19 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/27 10:25:38 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int sa(Twix *twix) {
 	push(&twix->a, temp2);
 			
 	if(PRINT == 1)
-		printf("sa()\n");
+		printf("sa\n");
 
 	return (0);
 }
