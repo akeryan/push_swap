@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 19:44:22 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/29 13:26:28 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void		clean_foo(t_Twix *twix, t_Int_array *lis_a);
 //lis
 t_Int_array	*lis(t_Stack *stack);
 void		stack_to_array(t_Stack *stack, int *array);
-int			init_lis_vars(t_Lis_vars *vars, t_Stack *stack);
+t_Lis_vars	*init_lis_vars(t_Stack *stack);
 void		calc_d_and_p(t_Lis_vars *vars, t_Stack *stack);
 void		calc_max_lis_ix(t_Lis_vars *vars, t_Stack *stack);
 int			restore_lis(t_Lis_vars *vars);

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:18:18 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 15:48:28 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/29 12:40:24 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int	pop(t_Stack *stack)
 {
 	int		value;
-	t_Node	*temp;
 
 	if (!stack)
 	{
@@ -28,8 +27,7 @@ int	pop(t_Stack *stack)
 		printf("Error - pop(): t_Stack is empty\n");
 		return (-1);
 	}
-	temp = stack->top;
-	value = temp->data;
+	value = stack->top->data;
 	pop_foo(stack);
 	stack->length--;
 	update_positions(stack);
@@ -38,8 +36,6 @@ int	pop(t_Stack *stack)
 
 void	pop_foo(t_Stack *stack)
 {
-	t_Node	*temp;
-
 	if (stack->top->next == stack->top)
 		stack->top = NULL;
 	else
@@ -51,7 +47,6 @@ void	pop_foo(t_Stack *stack)
 		}
 		else
 		{
-			temp = stack->top;
 			stack->top->next->prev = stack->top->prev;
 			stack->top->prev->next = stack->top->next;
 		}

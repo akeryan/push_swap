@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:04 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 12:31:51 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/29 13:29:52 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,20 @@
 // 'lis' - longest increasing subsequence
 t_Int_array	*lis(t_Stack *stack)
 {
-	int			i;
-	t_Lis_vars	vars;
+	t_Lis_vars	*vars;
+	t_Int_array *lis_restored;
 
-	if (!init_lis_vars(&vars, stack))
+	vars = init_lis_vars(stack);
+	if (!vars)
 		return (NULL);
-	calc_d_and_p(&vars, stack);
-	calc_max_lis_ix(&vars, stack);
-	if (!restore_lis(&vars))
+	calc_d_and_p(vars, stack);
+	calc_max_lis_ix(vars, stack);
+	if (!restore_lis(vars))
 		return (NULL);
-	i = 0;
-	free(vars.s_arr);
-	free(vars.d);
-	free(vars.p);
-	return (vars.lis_restored);
+	lis_restored = vars->lis_restored;
+	free(vars->s_arr);
+	free(vars->d);
+	free(vars->p);
+	free(vars);
+	return (lis_restored);
 }

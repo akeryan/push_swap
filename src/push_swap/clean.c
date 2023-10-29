@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 18:18:25 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/29 13:09:34 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@
 void	clean(t_Twix *twix)
 {
 	t_Int_array	*lis_a;
-	int			i;
 
-	i = 0;
 	lis_a = lis(&twix->a);
 	clean_foo(twix, lis_a);
 	while (twix->a.length > lis_a->length)
 		pb(twix);
+	free(lis_a->array);
 	free(lis_a);
 }
 
