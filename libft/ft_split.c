@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akeryan <akeryan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 13:00:25 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/26 07:37:21 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/28 15:59:45 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	**foo(char **out, unsigned int pos, char const *str, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**out;
-	int len;
+	int		len;
 
 	if (s == NULL)
 		return (NULL);

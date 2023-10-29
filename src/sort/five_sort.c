@@ -6,21 +6,22 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:02:29 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/27 21:03:05 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/28 14:48:25 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 // sorting algorithm for input of length 5
-void five_sort(Twix *twix) {
-	Node *pos;
+void	five_sort(t_Twix *twix)
+{
+	t_Node	*pos;
 
 	pb(twix);
 	pb(twix);
 	three_sort(twix);
 	inject_back(twix);
 	pos = is_pseudo_sorted(&twix->a);
-	if(pos)
+	if (pos)
 		balance(twix, pos);
 }
