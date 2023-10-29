@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:50 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 12:46:19 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/29 14:15:50 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,6 @@ void	parsing(int argc, char **argv, t_Stack *a)
 		}
 		check_and_push(arg, a);
 	}
+	free_all(arg);
+	//free(arg);
 }

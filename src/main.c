@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 20:52:31 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/29 14:47:24 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ int	main(int argc, char *argv[])
 	//printf("Stack A\n");
 	//print_stack(&twix.a);
 //TESTING BLOCK END
+	free_stack(&twix.a);
 	return (0);
 }

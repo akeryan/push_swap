@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:18:18 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 12:40:24 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/29 14:27:05 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	pop_foo(t_Stack *stack)
 			stack->top->next->prev = stack->top->prev;
 			stack->top->prev->next = stack->top->next;
 		}
+		free(stack->top);
 		stack->top = stack->top->next;
 	}
 }

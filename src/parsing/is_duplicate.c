@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:27:53 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 16:28:55 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/29 14:03:46 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_duplicate(t_Stack *stack, int a)
 		if (current_node->data == a)
 		{
 			printf("Error\n");
-			return (1);
+			exit (1);
 		}
 		if (current_node->next == stack->top)
 			break ;

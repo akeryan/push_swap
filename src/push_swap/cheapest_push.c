@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:56 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 10:21:16 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/29 14:55:05 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_Node	*cheap(t_Stack *s_a, t_Stack *s_b, t_Node *this_node)
 		loc = search_for_insertion_location(s_a, this_node->data);
 		rots = rot_ops(loc, this_node->pos, s_a->length, s_b->length);
 		steps_count = sumup_array(rots, (int)6);
+		free(rots);
 		if (steps_count < min_ops)
 		{
 			min_ops = steps_count;
