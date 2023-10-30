@@ -6,11 +6,15 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:56 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 14:51:00 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 19:06:51 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+static int		search_for_insertion_location(t_Stack *stack, int val);
+static int		*rot_ops(int loc_a, int loc_b, int len_a, int len_b);
+static t_Node	*cheap_foo(t_Stack *s_a, t_Stack *s_b, t_Node *this_node);
 
 /*	searches for an element in stack 'b' that 'costs' the least
 	to push to stack 'a' in terms of number of operations (e.g. ra, rr, ...)
@@ -29,7 +33,7 @@ int	*cheapest_push(t_Stack *stack_a, t_Stack *stack_b)
 	return (rots);
 }
 
-t_Node	*cheap_foo(t_Stack *s_a, t_Stack *s_b, t_Node *this_node)
+static t_Node	*cheap_foo(t_Stack *s_a, t_Stack *s_b, t_Node *this_node)
 {
 	t_Node	*ch_node;
 	int		steps_count;
@@ -54,4 +58,68 @@ t_Node	*cheap_foo(t_Stack *s_a, t_Stack *s_b, t_Node *this_node)
 		this_node = this_node->next;
 	}
 	return (ch_node);
+}
+
+//searches in 'stack' the correct position where to place 'val'
+static int	search_for_insertion_location(t_Stack *stack, int val)
+{
+	t_Node	*this_node;
+	t_Node	*max_val_node;
+	int		i;
+
+	if (!stack)
+		return (-1);
+	if (is_empty(stack))
+		return (0);
+	i = 0;
+	max_val_node = stack->top;
+	this_node = stack->top;
+	while (i++ < stack->length)
+	{
+		if (val < this_node->data && val > this_node->prev->data)
+			return (this_node->pos);
+		if (max_val_node->data > this_node->data)
+			max_val_node = this_node;
+		this_node = this_node->next;
+	}
+	return (max_val_node->pos);
+}
+
+/*	- This function returns an array of size 6, that contains number of steps
+	that each of the stacks needs to be rotated in order to perform placement 
+	of the element from stack_b to stack_a
+	- index '0' indicates number of times both stacks to be rotated forward 'rr'
+	- index '1' indicates number of times both stacks to be rotated backward 'rrr'
+	- index '2' indicates number of times stack_a to be rotated forward 'ra' 
+	- index '3' indicates number of times stack_a to be rotated backward 'rra' 
+	- index '4' indicates number of times stack_b to be rotated forward 'rb' 
+	- index '5' indicates number of times stack_b to be rotated backward 'rrb' 
+	*/
+static int	*rot_ops(int loc_a, int loc_b, int len_a, int len_b)
+{
+	int	*rotations;
+
+	rotations = (int *)ft_calloc(6, sizeof(int));
+	check_allocation(rotations);
+	if (loc_a <= len_a - loc_a + 1)
+		rotations[2] = loc_a;
+	else
+		rotations[3] = len_a - loc_a;
+	if (loc_b <= len_b - loc_b + 1)
+		rotations[4] = loc_b;
+	else
+		rotations[5] = len_b - loc_b;
+	if (rotations[2] > 0 && rotations[4] > 0)
+	{
+		rotations[0] = min(rotations[2], rotations[4]);
+		rotations[2] -= rotations[0];
+		rotations[4] -= rotations[0];
+	}
+	if (rotations[3] > 0 && rotations[5] > 0)
+	{
+		rotations[1] = min(rotations[3], rotations[5]);
+		rotations[3] -= rotations[1];
+		rotations[5] -= rotations[1];
+	}
+	return (rotations);
 }

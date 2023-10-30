@@ -6,11 +6,16 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:53:08 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 17:57:24 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 17:43:52 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+static void		three_sort(t_Twix *twix);
+static void		five_sort(t_Twix *twix);
+static void		inject_back(t_Twix *twix);
+static void		ps_push(t_Twix *twix, int *actions);
 
 //manages the whole process of the push_swap program
 void	push_swap(t_Twix *twix)
@@ -38,4 +43,74 @@ void	push_swap(t_Twix *twix)
 	min = is_pseudo_sorted(&twix->a);
 	if (min)
 		balance(twix, min);
+}
+
+// sorting algorithm for input of length 3
+static void	three_sort(t_Twix *twix)
+{
+	t_Node	*temp;
+
+	temp = is_pseudo_sorted(&twix->a);
+	if (temp != NULL)
+		return (balance(twix, temp));
+	sa(twix);
+	balance(twix, is_pseudo_sorted(&twix->a));
+}
+
+// sorting algorithm for input of length 5
+static void	five_sort(t_Twix *twix)
+{
+	t_Node	*pos;
+
+	pb(twix);
+	pb(twix);
+	three_sort(twix);
+	inject_back(twix);
+	pos = is_pseudo_sorted(&twix->a);
+	if (pos)
+		balance(twix, pos);
+}
+
+static void	inject_back(t_Twix *twix)
+{
+	int	*rots;
+
+	while (twix->b.length > 0)
+	{
+		rots = cheapest_push(&twix->a, &twix->b);
+		ps_push(twix, rots);
+	}
+}
+
+/*	Implements execution of operations (e.g. ra, rr, ...) in accordance with 
+	the instruction listed in 'actions' array
+*/
+
+static void	ps_push(t_Twix *twix, int *actions)
+{
+	void	(*operation[6])(t_Twix *);
+	int		i;
+	int		j;
+
+	operation[0] = rr;
+	operation[1] = rrr;
+	operation[2] = ra;
+	operation[3] = rra;
+	operation[4] = rb;
+	operation[5] = rrb;
+	i = 0;
+	if (sumup_array(actions, (int)6) > 0)
+	{
+		while (i < (int)6)
+		{
+			j = 0;
+			while (j < actions[i])
+			{
+				operation[i](twix);
+				j++;
+			}
+			i++;
+		}
+	}
+	pa(twix);
 }
