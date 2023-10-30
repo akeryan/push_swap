@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:18:18 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 14:27:05 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 10:38:47 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ int	pop(t_Stack *stack)
 	}
 	value = stack->top->data;
 	pop_foo(stack);
-	stack->length--;
 	update_positions(stack);
 	return (value);
 }
 
 void	pop_foo(t_Stack *stack)
 {
+	t_Node	*temp;
+
+	temp = stack->top;
 	if (stack->top->next == stack->top)
 		stack->top = NULL;
 	else
@@ -50,7 +52,8 @@ void	pop_foo(t_Stack *stack)
 			stack->top->next->prev = stack->top->prev;
 			stack->top->prev->next = stack->top->next;
 		}
-		free(stack->top);
 		stack->top = stack->top->next;
 	}
+	free(temp);
+	stack->length--;
 }
