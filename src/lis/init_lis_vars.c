@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:56:47 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 13:34:05 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 16:16:25 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_Lis_vars	*init_lis_vars(t_Stack *stack)
 	int			s_len;
 
 	s_len = stack->length;
-	vars = (t_Lis_vars*)malloc(sizeof(t_Lis_vars));
+	vars = (t_Lis_vars *)malloc(sizeof(t_Lis_vars));
 	vars->s_arr = (int *)ft_calloc(s_len, sizeof(int));
 	vars->d = (int *)ft_calloc(s_len, sizeof(int));
 	vars->p = (int *)ft_calloc(s_len, sizeof(int));

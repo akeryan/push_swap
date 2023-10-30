@@ -27,6 +27,7 @@ int	*rot_ops(int loc_a, int loc_b, int len_a, int len_b)
 	int	*rotations;
 
 	rotations = (int *)ft_calloc(6, sizeof(int));
+	check_allocation(rotations);
 	if (loc_a <= len_a - loc_a + 1)
 		rotations[2] = loc_a;
 	else

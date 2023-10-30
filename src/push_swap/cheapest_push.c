@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:56 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 14:55:05 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 14:51:00 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	*cheapest_push(t_Stack *stack_a, t_Stack *stack_b)
 	int		*rots;
 
 	this_node = stack_b->top;
-	cheap_node = cheap(stack_a, stack_b, this_node);
+	cheap_node = cheap_foo(stack_a, stack_b, this_node);
 	v = search_for_insertion_location(stack_a, cheap_node->data);
 	rots = rot_ops(v, cheap_node->pos, stack_a->length, stack_b->length);
 	return (rots);
 }
 
-t_Node	*cheap(t_Stack *s_a, t_Stack *s_b, t_Node *this_node)
+t_Node	*cheap_foo(t_Stack *s_a, t_Stack *s_b, t_Node *this_node)
 {
 	t_Node	*ch_node;
 	int		steps_count;

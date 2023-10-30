@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:04 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 13:29:52 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 16:16:49 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 t_Int_array	*lis(t_Stack *stack)
 {
 	t_Lis_vars	*vars;
-	t_Int_array *lis_restored;
+	t_Int_array	*lis_restored;
 
 	vars = init_lis_vars(stack);
 	if (!vars)

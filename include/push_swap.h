@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 14:45:07 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 16:13:31 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void		rrb(t_Twix *twix);
 void		rrr(t_Twix *twix);
 
 //utils.c
+void		check_allocation(void *ptr);
 size_t		my_strlen(const char *str);
 int			min(int a, int b);
 int			max(int a, int b);
@@ -98,7 +99,7 @@ int			search_for_insertion_location(t_Stack *stack, int val);
 int			*rot_ops(int loc_a, int loc_b, int len_a, int len_b);
 void		ps_push(t_Twix *twix, int *steps);
 int			*cheapest_push(t_Stack *stack_a, t_Stack *stack_b);
-t_Node		*cheap(t_Stack *s_a, t_Stack *s_b, t_Node *this_node);
+t_Node		*cheap_foo(t_Stack *s_a, t_Stack *s_b, t_Node *this_node);
 int			sumup_array(int *rots, int len);
 void		clean(t_Twix *twix);
 void		inject_back(t_Twix *twix);

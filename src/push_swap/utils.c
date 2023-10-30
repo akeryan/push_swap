@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:55:05 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 14:47:24 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 16:07:52 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,14 @@ void	init_twix(t_Twix *twix)
 	}
 	init_stack(&twix->a);
 	init_stack(&twix->b);
+}
+
+//processes pointer that was assigned an allocated memory
+void	check_allocation(void *ptr)
+{
+	if (!ptr)
+	{
+		printf("Error: failed to allocate memory\n");
+		exit(1);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:27:01 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 14:16:31 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 14:16:28 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	check_and_push(char **str, t_Stack *stack)
 	{
 		push_candidate_number = ft_atoi(str[--i]);
 		itoa_value = ft_itoa(push_candidate_number);
+		check_allocation(itoa_value);
 		if (ft_strlen(itoa_value) != my_strlen(str[i]))
 		{
 			printf("Error\n");

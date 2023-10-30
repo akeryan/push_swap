@@ -6,11 +6,11 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:50 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 16:49:24 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:48:30 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../include/push_swap.h"	
 
 // parses all the input values, meaning checks the validity of input values 
 void	parsing(int argc, char **argv, t_Stack *a)
