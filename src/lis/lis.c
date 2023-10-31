@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:04 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 17:26:49 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:35:48 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 //	https://cp-algorithms.com/sequences/longest_increasing_subsequence.html
 
-static t_Lis_vars	*init_lis_vars(t_Stack *stack);
-static void			calc_d_and_p(t_Lis_vars *vars, t_Stack *stack);
-static void			calc_max_lis_ix(t_Lis_vars *vars, t_Stack *stack);
-static int			restore_lis(t_Lis_vars *vars);
+static t_lis_vars	*init_lis_vars(t_stack *stack);
+static void			calc_d_and_p(t_lis_vars *vars, t_stack *stack);
+static void			calc_max_lis_ix(t_lis_vars *vars, t_stack *stack);
+static int			restore_lis(t_lis_vars *vars);
 
 // 'lis' - longest increasing subsequence
-t_Int_array	*lis(t_Stack *stack)
+t_int_array	*lis(t_stack *stack)
 {
-	t_Lis_vars	*vars;
-	t_Int_array	*lis_restored;
+	t_lis_vars	*vars;
+	t_int_array	*lis_restored;
 
 	vars = init_lis_vars(stack);
 	if (!vars)
@@ -40,8 +40,8 @@ t_Int_array	*lis(t_Stack *stack)
 	return (lis_restored);
 }
 
-// calculates 'd' and 'p' variables of t_Lis_vars
-static void	calc_d_and_p(t_Lis_vars *vars, t_Stack *stack)
+// calculates 'd' and 'p' variables of t_lis_vars
+static void	calc_d_and_p(t_lis_vars *vars, t_stack *stack)
 {
 	int		i;
 	int		j;
@@ -64,8 +64,8 @@ static void	calc_d_and_p(t_Lis_vars *vars, t_Stack *stack)
 	}	
 }
 
-// calculates max_lis_ix variable of t_Lis_vars structure
-static void	calc_max_lis_ix(t_Lis_vars *vars, t_Stack *stack)
+// calculates max_lis_ix variable of t_lis_vars structure
+static void	calc_max_lis_ix(t_lis_vars *vars, t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -84,15 +84,15 @@ static void	calc_max_lis_ix(t_Lis_vars *vars, t_Stack *stack)
 	}
 }
 
-// initializes t_Lis_vars structure
-static t_Lis_vars	*init_lis_vars(t_Stack *stack)
+// initializes t_lis_vars structure
+static t_lis_vars	*init_lis_vars(t_stack *stack)
 {
-	t_Lis_vars	*vars;
+	t_lis_vars	*vars;
 	int			i;
 	int			s_len;
 
 	s_len = stack->length;
-	vars = (t_Lis_vars *)malloc(sizeof(t_Lis_vars));
+	vars = (t_lis_vars *)malloc(sizeof(t_lis_vars));
 	vars->s_arr = (int *)ft_calloc(s_len, sizeof(int));
 	vars->d = (int *)ft_calloc(s_len, sizeof(int));
 	vars->p = (int *)ft_calloc(s_len, sizeof(int));
@@ -112,14 +112,14 @@ static t_Lis_vars	*init_lis_vars(t_Stack *stack)
 }
 
 // restores 'lis' 
-static int	restore_lis(t_Lis_vars *vars)
+static int	restore_lis(t_lis_vars *vars)
 {
 	int				i;
 	int				pos;
 	unsigned int	sz;
 
 	sz = sizeof(int);
-	vars->lis_restored = (t_Int_array *)malloc(sizeof(t_Int_array));
+	vars->lis_restored = (t_int_array *)malloc(sizeof(t_int_array));
 	vars->lis_restored->array = (int *)ft_calloc(vars->d[vars->max_lis_ix], sz);
 	if (!vars->lis_restored || !vars->lis_restored->array)
 		return (0);

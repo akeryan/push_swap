@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:54:50 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 19:44:10 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 /*	- copies elements of the 'stack' to array and returns it
 	- memmory for the array is allocated
 */
-void	stack_to_array(t_Stack *stack, int *arr)
+void	stack_to_array(t_stack *stack, int *arr)
 {
 	int		i;
-	t_Node	*i_node;
+	t_node	*i_node;
 
 	if (!arr)
 		return ;

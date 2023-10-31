@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:02:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 14:49:58 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 	it is sorted starting from some element of the stack
 */
 
-t_Node	*is_pseudo_sorted(t_Stack *stack)
+t_node	*is_pseudo_sorted(t_stack *stack)
 {
-	t_Node	*min;
+	t_node	*min;
 	int		result;
 
 	min = min_element_in_stack(stack);

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:02:48 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 19:49:09 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 19:21:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 	from some element of the stack (since the stack is circular, it means that 
 	it is sorted starting from that element and not starting from the top)
 */
-int	is_sorted(t_Node *start)
+int	is_sorted(t_node *start)
 {
-	t_Node	*this;
+	t_node	*this;
 
 	if (!start)
 		return (-1);

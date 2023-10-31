@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:21:00 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 15:01:40 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 19:22:27 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // works correctly only if the stack is sorted in an ascending order
 // 'foo' pointer shows the node from which the stack should be balanced and 
 // can be identified with help of is_pseudo_sorted() function
-void	balance(t_Twix *twix, t_Node *foo)
+void	balance(t_twix *twix, t_node *foo)
 {
 	int	pos;
 

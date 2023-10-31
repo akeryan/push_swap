@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:54:17 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 12:44:36 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 19:22:27 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*	sa (swap a): Swap the first 2 elements at the top of stack a.
 	Do nothing if there is only one or no elements.
 */
-void	sa(t_Twix *twix)
+void	sa(t_twix *twix)
 {
 	int	temp1;
 	int	temp2;

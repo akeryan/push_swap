@@ -6,14 +6,14 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:27:01 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 14:16:28 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 //checks each value of '**str' and if valid pushes to the 'stack'
-void	check_and_push(char **str, t_Stack *stack)
+void	check_and_push(char **str, t_stack *stack)
 {
 	int		push_candidate_number;
 	char	*itoa_value;

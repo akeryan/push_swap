@@ -6,25 +6,20 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:16:42 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 14:57:21 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 // prints values of 'stack' into a terminal
-void	print_stack(t_Stack *stack)
+void	print_stack(t_stack *stack)
 {
-	t_Node	*current_node;
+	t_node	*current_node;
 
-	if (!stack)
+	if (!stack || !stack->top)
 	{
-		fprintf(stderr, "Error - pring_stack(): stack is NULL\n");
-		exit(0);
-	}
-	if (is_empty(stack))
-	{
-		fprintf(stderr, "Error - print_stack(): stack is empty\n");
+		fprintf(stderr, "Error - peek(): stack is null or is empty\n");
 		return ;
 	}
 	current_node = stack->top;

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:39 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 10:14:16 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 19:22:27 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*	pa (push a): Take the first element at the top of b 
 	and put it at the top of a. Do nothing if b is empty.
 */
-void	pa(t_Twix *twix)
+void	pa(t_twix *twix)
 {
 	if (twix->b.top)
 	{

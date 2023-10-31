@@ -1,3 +1,3 @@
 *.out
 checker*
-/.vscode/
+push_swap_test.sh

@@ -6,19 +6,19 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:19:51 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 09:22:04 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 // after the operations 'push' or 'pop' updates positions of the nodes
-void	update_positions(t_Stack *stack)
+void	update_positions(t_stack *stack)
 {
-	t_Node	*this_node;
+	t_node	*this_node;
 	int		i;
 
-	if (!stack || is_empty(stack))
+	if (!stack || !stack->top)
 		return ;
 	i = 0;
 	this_node = stack->top;

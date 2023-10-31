@@ -6,21 +6,21 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:53:08 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 17:43:52 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 21:47:54 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void		three_sort(t_Twix *twix);
-static void		five_sort(t_Twix *twix);
-static void		inject_back(t_Twix *twix);
-static void		ps_push(t_Twix *twix, int *actions);
+static void		three_sort(t_twix *twix);
+static void		five_sort(t_twix *twix);
+static void		inject_back(t_twix *twix);
+static void		ps_push(t_twix *twix, int *actions);
 
 //manages the whole process of the push_swap program
-void	push_swap(t_Twix *twix)
+void	push_swap(t_twix *twix)
 {
-	t_Node	*min;
+	t_node	*min;
 
 	if (twix->a.length == 3)
 	{
@@ -46,9 +46,9 @@ void	push_swap(t_Twix *twix)
 }
 
 // sorting algorithm for input of length 3
-static void	three_sort(t_Twix *twix)
+static void	three_sort(t_twix *twix)
 {
-	t_Node	*temp;
+	t_node	*temp;
 
 	temp = is_pseudo_sorted(&twix->a);
 	if (temp != NULL)
@@ -58,9 +58,9 @@ static void	three_sort(t_Twix *twix)
 }
 
 // sorting algorithm for input of length 5
-static void	five_sort(t_Twix *twix)
+static void	five_sort(t_twix *twix)
 {
-	t_Node	*pos;
+	t_node	*pos;
 
 	pb(twix);
 	pb(twix);
@@ -71,7 +71,7 @@ static void	five_sort(t_Twix *twix)
 		balance(twix, pos);
 }
 
-static void	inject_back(t_Twix *twix)
+static void	inject_back(t_twix *twix)
 {
 	int	*rots;
 
@@ -79,6 +79,7 @@ static void	inject_back(t_Twix *twix)
 	{
 		rots = cheapest_push(&twix->a, &twix->b);
 		ps_push(twix, rots);
+		free(rots);
 	}
 }
 
@@ -86,9 +87,9 @@ static void	inject_back(t_Twix *twix)
 	the instruction listed in 'actions' array
 */
 
-static void	ps_push(t_Twix *twix, int *actions)
+static void	ps_push(t_twix *twix, int *actions)
 {
-	void	(*operation[6])(t_Twix *);
+	void	(*operation[6])(t_twix *);
 	int		i;
 	int		j;
 

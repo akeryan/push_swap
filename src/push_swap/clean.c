@@ -6,21 +6,21 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 17:29:40 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 19:23:26 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	clean_foo(t_Twix *twix, t_Int_array *lis_a);
+static void	clean_foo(t_twix *twix, t_int_array *lis_a);
 
 /*	if the twix->a is not pseudo-sorted it can be passed to 'clean' function
 	in order to keep only a subsequence that is sorted (in an ascending order)
 	the rest of the elements are pushed to the stack 'b'
 */
-void	clean(t_Twix *twix)
+void	clean(t_twix *twix)
 {
-	t_Int_array	*lis_a;
+	t_int_array	*lis_a;
 
 	lis_a = lis(&twix->a);
 	clean_foo(twix, lis_a);
@@ -30,7 +30,7 @@ void	clean(t_Twix *twix)
 	free(lis_a);
 }
 
-static void	clean_foo(t_Twix *twix, t_Int_array *lis_a)
+static void	clean_foo(t_twix *twix, t_int_array *lis_a)
 {
 	int	i;
 

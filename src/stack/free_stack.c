@@ -6,16 +6,16 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 14:29:25 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 16:17:14 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	free_stack(t_Stack *stack)
+void	free_stack(t_stack *stack)
 {
-	t_Node	*tmp;
-	t_Node	*buff;
+	t_node	*tmp;
+	t_node	*buff;
 
 	if (!stack || !stack->top)
 		return ;

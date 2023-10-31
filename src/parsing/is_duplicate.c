@@ -6,16 +6,16 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:27:53 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/29 14:03:46 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 //cheks whether value 'a' already present in 'stack'
-int	is_duplicate(t_Stack *stack, int a)
+int	is_duplicate(t_stack *stack, int a)
 {
-	t_Node	*current_node;
+	t_node	*current_node;
 
 	if (!stack)
 	{

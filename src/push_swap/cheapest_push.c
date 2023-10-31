@@ -6,23 +6,23 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:56 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 19:06:51 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static int		search_for_insertion_location(t_Stack *stack, int val);
+static int		search_for_insertion_location(t_stack *stack, int val);
 static int		*rot_ops(int loc_a, int loc_b, int len_a, int len_b);
-static t_Node	*cheap_foo(t_Stack *s_a, t_Stack *s_b, t_Node *this_node);
+static t_node	*cheap_foo(t_stack *s_a, t_stack *s_b, t_node *this_node);
 
 /*	searches for an element in stack 'b' that 'costs' the least
 	to push to stack 'a' in terms of number of operations (e.g. ra, rr, ...)
 */
-int	*cheapest_push(t_Stack *stack_a, t_Stack *stack_b)
+int	*cheapest_push(t_stack *stack_a, t_stack *stack_b)
 {
-	t_Node	*this_node;
-	t_Node	*cheap_node;
+	t_node	*this_node;
+	t_node	*cheap_node;
 	int		v;
 	int		*rots;
 
@@ -33,9 +33,9 @@ int	*cheapest_push(t_Stack *stack_a, t_Stack *stack_b)
 	return (rots);
 }
 
-static t_Node	*cheap_foo(t_Stack *s_a, t_Stack *s_b, t_Node *this_node)
+static t_node	*cheap_foo(t_stack *s_a, t_stack *s_b, t_node *this_node)
 {
-	t_Node	*ch_node;
+	t_node	*ch_node;
 	int		steps_count;
 	int		loc;
 	int		*rots;	
@@ -61,16 +61,14 @@ static t_Node	*cheap_foo(t_Stack *s_a, t_Stack *s_b, t_Node *this_node)
 }
 
 //searches in 'stack' the correct position where to place 'val'
-static int	search_for_insertion_location(t_Stack *stack, int val)
+static int	search_for_insertion_location(t_stack *stack, int val)
 {
-	t_Node	*this_node;
-	t_Node	*max_val_node;
+	t_node	*this_node;
+	t_node	*max_val_node;
 	int		i;
 
-	if (!stack)
+	if (!stack || !stack->top)
 		return (-1);
-	if (is_empty(stack))
-		return (0);
 	i = 0;
 	max_val_node = stack->top;
 	this_node = stack->top;
@@ -99,7 +97,7 @@ static int	*rot_ops(int loc_a, int loc_b, int len_a, int len_b)
 {
 	int	*rotations;
 
-	rotations = (int *)ft_calloc(6, sizeof(int));
+	rotations = (int *)malloc(6 * sizeof(int));
 	check_allocation(rotations);
 	if (loc_a <= len_a - loc_a + 1)
 		rotations[2] = loc_a;

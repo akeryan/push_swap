@@ -6,14 +6,14 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:15:26 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/28 15:01:56 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-// initializes 't_Stack' structure
-void	init_stack(t_Stack *stack)
+// initializes 't_stack' structure
+void	init_stack(t_stack *stack)
 {
 	if (!stack)
 	{

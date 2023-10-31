@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:55:05 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 16:07:52 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/30 19:22:27 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	max(int a, int b)
 }
 
 // initializes the 'twix' structure
-void	init_twix(t_Twix *twix)
+void	init_twix(t_twix *twix)
 {
 	if (!twix)
 	{

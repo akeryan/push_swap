@@ -6,16 +6,16 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:17:47 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 09:24:13 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 // pushes element 'value' on top of 'stack'
-void	push(t_Stack *stack, int value)
+void	push(t_stack *stack, int value)
 {
-	t_Node	*new_node;
+	t_node	*new_node;
 
 	if (!stack)
 	{
@@ -28,9 +28,9 @@ void	push(t_Stack *stack, int value)
 	update_positions(stack);
 }
 
-void	push_foo(t_Stack *stack, t_Node *new_node)
+void	push_foo(t_stack *stack, t_node *new_node)
 {
-	if (!is_empty(stack))
+	if (stack->top)
 	{
 		new_node->next = stack->top;
 		if (stack->top->next == stack->top)

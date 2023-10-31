@@ -6,25 +6,20 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:18:18 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 10:38:47 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 // pops and returns the value from the top node of the 'stack'
-int	pop(t_Stack *stack)
+int	pop(t_stack *stack)
 {
 	int		value;
 
-	if (!stack)
+	if (!stack || !stack->top)
 	{
-		fprintf(stderr, "Error - pop(): stack is null");
-		exit(1);
-	}
-	if (is_empty(stack))
-	{
-		printf("Error - pop(): t_Stack is empty\n");
+		fprintf(stderr, "Error - peek(): stack is null or is empty\n");
 		return (-1);
 	}
 	value = stack->top->data;
@@ -33,9 +28,9 @@ int	pop(t_Stack *stack)
 	return (value);
 }
 
-void	pop_foo(t_Stack *stack)
+void	pop_foo(t_stack *stack)
 {
-	t_Node	*temp;
+	t_node	*temp;
 
 	temp = stack->top;
 	if (stack->top->next == stack->top)
