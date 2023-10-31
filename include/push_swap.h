@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 13:51:05 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void		update_positions(t_stack *stack);
 void		balance(t_twix *twix, t_node *foo);
 void		pop_foo(t_stack *stack);
 void		free_stack(t_stack *stack);
-void		stack_to_array(t_stack *stack, int *array);
+int			*stack_to_array(t_stack *stack, t_node *start);
 
 //t_twix
 void		init_twix(t_twix *twix);

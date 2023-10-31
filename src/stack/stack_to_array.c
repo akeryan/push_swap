@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 10:54:50 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 13:57:47 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,24 @@
 /*	- copies elements of the 'stack' to array and returns it
 	- memmory for the array is allocated
 */
-void	stack_to_array(t_stack *stack, int *arr)
+int	*stack_to_array(t_stack *stack, t_node *start)
 {
 	int		i;
-	t_node	*i_node;
+	int		*arr;
+	t_node	*tmp;
 
 	if (!arr)
 		return ;
 	i = 0;
-	i_node = stack->top;
-	while (i < stack->length)
+	arr = (int *)malloc(stack->length * sizeof(int));
+	tmp = NULL;
+	while (tmp != start)
 	{
-		arr[i] = i_node->data;
-		i_node = i_node->next;
+		if (!tmp)
+			tmp = start;
+		arr[i] = tmp->data;
+		tmp = tmp->next;
 		i++;
 	}
+	return (arr);
 }

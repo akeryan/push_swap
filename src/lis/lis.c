@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:04 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:35:48 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 13:49:12 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ static void	calc_d_and_p(t_lis_vars *vars, t_stack *stack)
 {
 	int		i;
 	int		j;
+	t_node	*min;
 
-	stack_to_array(stack, vars->s_arr);
+	min = min_element_in_stack(stack);
+	vars->s_arr = stack_to_array(stack);
 	i = 0;
 	while (i < stack->length)
 	{
