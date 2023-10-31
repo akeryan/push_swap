@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:50 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 09:35:59 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 10:01:09 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	parsing(int argc, char **argv, t_node *stack)
 	char	**arg;
 	int		i;
 
-	if (!a)
+	if (!stack)
 	{
 		fprintf(stderr, "Error - parsing(): stack is NULL\n");
 		exit(0);
@@ -36,7 +36,7 @@ void	parsing(int argc, char **argv, t_node *stack)
 			fprintf(stderr, "Error - parsing(): input is empty\n");
 			exit(0);
 		}
-		check_and_push(arg, a);
+		check_and_push(arg, stack);
 		free_all(arg);
 	}
 }

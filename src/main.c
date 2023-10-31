@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 19:22:27 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 10:09:31 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char *argv[])
 
 	init_twix(&twix);
 	parsing(argc, argv, &twix.a);
+	//print_stack(&twix.a);
 	push_swap(&twix);
 	free_stack(&twix.a);
 	return (0);

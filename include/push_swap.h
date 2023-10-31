@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 09:50:56 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 10:02:19 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ typedef struct s_lis_vars {
 
 //parsing.c
 void		parsing(int argc, char **argv, t_node *stack);
-void		check_and_push(char **str, t_stack *stack);
+void		check_and_push(char **str, t_node *stack);
 int			is_duplicate(t_node *stack, int a);
 
 //stack.c
 t_node		*new_node(int value);
-void		print_stack(t_stack *stack);
+void		print_stack(t_node *stack);
 void		push(t_node *stack, int value);
 void		push_foo(t_node *stack, t_node *new_node);
 int			pop(t_stack *stack);
