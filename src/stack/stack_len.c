@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   stack_len.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 11:16:07 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 10:31:41 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/31 10:20:37 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/31 10:33:45 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-// Creates and returns a variable of type t_node and allocates memory for it
-t_node	*new_node(int value)
+int	stack_len(t_node *stack)
 {
-	t_node	*new_node;
+	t_node	*tmp;
+	int		len;
 
-	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_node)
+	if (!stack)
+		return (0);
+	len = 0;
+	tmp = NULL;
+	while (tmp != stack)
 	{
-		fprintf(stderr, "Error - malloc_node(): Allocation failed\n");
-		exit(1);
+		if (!tmp)
+			tmp = stack;
+		len++;
+		tmp = tmp->next;
 	}
-	new_node->data = value;
-	new_node->next = new_node;
-	new_node->prev = new_node;
-	return (new_node);
+	return (len);
 }
