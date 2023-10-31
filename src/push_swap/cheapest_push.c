@@ -6,15 +6,15 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:56 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 09:10:25 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static int		search_for_insertion_location(t_stack *stack, int val);
-static int		*rot_ops(int loc_a, int loc_b, int len_a, int len_b);
-static t_node	*cheap_foo(t_stack *s_a, t_stack *s_b, t_node *this_node);
+static t_node		*search_for_insertion_location(t_stack *stack, int val);
+static int			*rot_ops(t_node *loc_a, t_node *loc_b, int len_a, int len_b);
+static t_node		*cheap_foo(t_stack *s_a, t_stack *s_b, t_node *this_node);
 
 /*	searches for an element in stack 'b' that 'costs' the least
 	to push to stack 'a' in terms of number of operations (e.g. ra, rr, ...)
@@ -29,7 +29,7 @@ int	*cheapest_push(t_stack *stack_a, t_stack *stack_b)
 	this_node = stack_b->top;
 	cheap_node = cheap_foo(stack_a, stack_b, this_node);
 	v = search_for_insertion_location(stack_a, cheap_node->data);
-	rots = rot_ops(v, cheap_node->pos, stack_a->length, stack_b->length);
+	rots = rot_ops(v, cheap_node, stack_a->length, stack_b->length);
 	return (rots);
 }
 
@@ -45,7 +45,7 @@ static t_node	*cheap_foo(t_stack *s_a, t_stack *s_b, t_node *this_node)
 	while (42)
 	{
 		loc = search_for_insertion_location(s_a, this_node->data);
-		rots = rot_ops(loc, this_node->pos, s_a->length, s_b->length);
+		rots = rot_ops(loc, this_node, s_a->length, s_b->length);
 		steps_count = sumup_array(rots, (int)6);
 		free(rots);
 		if (steps_count < min_ops)
@@ -61,7 +61,7 @@ static t_node	*cheap_foo(t_stack *s_a, t_stack *s_b, t_node *this_node)
 }
 
 //searches in 'stack' the correct position where to place 'val'
-static int	search_for_insertion_location(t_stack *stack, int val)
+static t_node	*search_for_insertion_location(t_stack *stack, int val)
 {
 	t_node	*this_node;
 	t_node	*max_val_node;
@@ -75,12 +75,12 @@ static int	search_for_insertion_location(t_stack *stack, int val)
 	while (i++ < stack->length)
 	{
 		if (val < this_node->data && val > this_node->prev->data)
-			return (this_node->pos);
+			return (this_node);
 		if (max_val_node->data > this_node->data)
 			max_val_node = this_node;
 		this_node = this_node->next;
 	}
-	return (max_val_node->pos);
+	return (max_val_node);
 }
 
 /*	- This function returns an array of size 6, that contains number of steps
@@ -93,7 +93,7 @@ static int	search_for_insertion_location(t_stack *stack, int val)
 	- index '4' indicates number of times stack_b to be rotated forward 'rb' 
 	- index '5' indicates number of times stack_b to be rotated backward 'rrb' 
 	*/
-static int	*rot_ops(int loc_a, int loc_b, int len_a, int len_b)
+static int	*rot_ops(t_node *loc_a, t_node *loc_b, int len_a, int len_b)
 {
 	int	*rotations;
 

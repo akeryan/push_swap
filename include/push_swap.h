@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 09:50:56 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,13 @@
 typedef struct s_node
 {
 	int				data;
-	int				pos;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
 
-typedef struct s_stack {
-	t_node	*top;
-	int		length;
-}	t_stack;
-
 typedef struct s_twix {
-	t_stack	a;
-	t_stack	b;
+	t_node	*a;
+	t_node	*b;
 }	t_twix;
 
 typedef struct s_int_array {
@@ -54,19 +48,17 @@ typedef struct s_lis_vars {
 }	t_lis_vars;
 
 //parsing.c
-void		parsing(int argc, char **argv, t_stack *stack);
+void		parsing(int argc, char **argv, t_node *stack);
 void		check_and_push(char **str, t_stack *stack);
-int			is_duplicate(t_stack *stack, int a);
+int			is_duplicate(t_node *stack, int a);
 
 //stack.c
-void		init_stack(t_stack *stack);
-t_node		*malloc_node(void);
+t_node		*new_node(int value);
 void		print_stack(t_stack *stack);
-void		push(t_stack *stack, int value);
-void		push_foo(t_stack *stack, t_node *new_node);
+void		push(t_node *stack, int value);
+void		push_foo(t_node *stack, t_node *new_node);
 int			pop(t_stack *stack);
 int			peek(t_stack *stack);
-void		update_positions(t_stack *stack);
 void		balance(t_twix *twix, t_node *foo);
 void		pop_foo(t_stack *stack);
 void		free_stack(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:55:05 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 19:22:27 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 09:33:23 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void	init_twix(t_twix *twix)
 		fprintf(stderr, "Error (twix.c): twix is NULL\n");
 		exit(1);
 	}
-	init_stack(&twix->a);
-	init_stack(&twix->b);
+	twix->a = new_node(0);
+	twix->b = new_node(0);
 }
 
 //processes pointer that was assigned an allocated memory
