@@ -6,7 +6,7 @@
 			"request": "launch",
 			"name": "Launch",
 			"program": "/Users/akeryan/repos/push_swap/bin/push_swap",
-			"args": ["5115 4880 -9289 6300 9249 2605 9085 2701 6270 -8983 2696 -4762 -7344 -2919 3829 803 3396 -3341 4861 4386 -2028 3445 -3812 1659 -8745 -9630 9124 5563 -6756 8801"],
+			"args": ["1 25 -1 2 9 3 4"],
 			"cwd": "${workspaceFolder}",
 			"preLaunchTask": "MyBuild", // Name of the task to build your project
 		}

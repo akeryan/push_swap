@@ -1,0 +1,6 @@
+branch name: "clean_starting_from_min"
+
+On this branch I tried to modify the 'clean' function so that it started searching for lis not from the current stack_top but from the minimum element of the stack.
+My hope was that this approach would give better results in terms of number of moves.
+However I encountered problems with number of different errors and decided to go back and try another approach.
+I would probably start implementing basic algorithm described as turk algorithm: push first two elements to stack_b and the rest of elements push so that we had a sorted list in an decreasing order, which when pushing back to stack-a would atomatically become sorted in an ascending order.

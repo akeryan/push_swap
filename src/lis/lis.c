@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:04 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 13:49:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 14:18:57 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static int			restore_lis(t_lis_vars *vars);
 t_int_array	*lis(t_stack *stack)
 {
 	t_lis_vars	*vars;
-	t_int_array	*lis_restored;
 
 	vars = init_lis_vars(stack);
 	if (!vars)
@@ -32,12 +31,11 @@ t_int_array	*lis(t_stack *stack)
 	calc_max_lis_ix(vars, stack);
 	if (!restore_lis(vars))
 		return (NULL);
-	lis_restored = vars->lis_restored;
 	free(vars->s_arr);
 	free(vars->d);
 	free(vars->p);
 	free(vars);
-	return (lis_restored);
+	return (vars->lis_restored);
 }
 
 // calculates 'd' and 'p' variables of t_lis_vars
@@ -48,7 +46,7 @@ static void	calc_d_and_p(t_lis_vars *vars, t_stack *stack)
 	t_node	*min;
 
 	min = min_element_in_stack(stack);
-	vars->s_arr = stack_to_array(stack);
+	vars->s_arr = stack_to_array(stack, min);
 	i = 0;
 	while (i < stack->length)
 	{

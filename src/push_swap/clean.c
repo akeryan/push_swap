@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 19:23:26 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 15:35:41 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	clean(t_twix *twix)
 	t_int_array	*lis_a;
 
 	lis_a = lis(&twix->a);
+	printf("RESTORED ARRAY\n");
+	for (int i = 0; i < lis_a->length; i++)
+		printf("%d: %d\n", i, lis_a->array[i]);
 	clean_foo(twix, lis_a);
 	while (twix->a.length > lis_a->length)
 		pb(twix);
@@ -32,20 +35,33 @@ void	clean(t_twix *twix)
 
 static void	clean_foo(t_twix *twix, t_int_array *lis_a)
 {
-	int	i;
+	int		i;
+	int		j;
+	t_node	*tmp;
+	int		catch;
 
-	i = 0;
+	j = 0;
 	if (lis_a->length > 1)
 	{
-		while (i < lis_a->length)
+		tmp = NULL;
+		while (j < twix->a.length)
 		{
-			if (twix->a.top->data != lis_a->array[i])
-				pb(twix);
-			else
+			if (!tmp)
+				tmp = twix->a.top;
+			i = 0;
+			catch = 0;
+			while (i < lis_a->length)
 			{
-				ra(twix);
+				if (tmp->data == lis_a->array[i])
+					catch = 1;
 				i++;
 			}
+			if (catch == 1)
+				ra(twix);
+			else
+				pb(twix);
+			tmp = tmp->next;
+			j++;
 		}
 	}
 }
