@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 10:02:19 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 10:58:39 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void		balance(t_twix *twix, t_node *foo);
 void		pop_foo(t_stack *stack);
 void		free_stack(t_stack *stack);
 void		stack_to_array(t_stack *stack, int *array);
+int			stack_len(t_node *stack);
 
 //t_twix
 void		init_twix(t_twix *twix);
@@ -95,7 +96,7 @@ t_int_array	*lis(t_stack *stack);
 
 //sorting
 int			is_sorted(t_node *start);
-t_node		*is_pseudo_sorted(t_stack *stack);
-t_node		*min_element_in_stack(t_stack *stack);
+t_node		*is_pseudo_sorted(t_node *stack);
+t_node		*min_element_in_stack(t_node *stack);
 
 #endif
