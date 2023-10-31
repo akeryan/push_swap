@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 18:35:48 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 19:19:31 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ typedef struct s_int_array {
 	int	length;
 }	t_int_array;
 
-// d[i] is the length of the 'lis' that ends at the s_arr[i] 
-// p[i] is the index j of the second last element in 'lis' ending in 'i'. 
-// s_arr (stack_array): array for keeping the stack
-// max_lis_ix is an index of maximum value in 'd'
-// lis_restored is an array to keep restored 'lis'
+/* d[i] is the length of the 'lis' that ends at the s_arr[i] 
+p[i] is the index j of the second last element in 'lis' ending in 'i'. 
+s_arr (stack_array): array for keeping the stack
+max_lis_ix is an index of maximum value in 'd'
+lis_restored is an array to keep restored 'lis'*/
 typedef struct s_lis_vars {
 	int			*d;	
 	int			*p;	

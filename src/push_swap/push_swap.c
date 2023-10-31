@@ -6,13 +6,12 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:53:08 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 18:38:21 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 18:41:58 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-//static void		five_sort(t_twix *twix);
 static void		ps_push(t_twix *twix, int *actions);
 
 //manages the whole process of the push_swap program
@@ -41,11 +40,13 @@ void	mini_sort(t_twix *twix)
 	if (twix->a.length == 1)
 		return ;
 	if (twix->a.length == 2)
+	{
 		if (twix->a.top->data > twix->a.top->next->data)
 		{
 			sa(twix);
 			return ;
 		}
+	}
 }
 
 // sorting algorithm for input of length 3
@@ -59,20 +60,6 @@ void	three_sort(t_twix *twix)
 	sa(twix);
 	balance(twix, is_pseudo_sorted(&twix->a));
 }
-
-// sorting algorithm for input of length 5
-//static void	five_sort(t_twix *twix)
-//{
-	//t_node	*pos;
-
-	//pb(twix);
-	//pb(twix);
-	//three_sort(twix);
-	//inject_back(twix);
-	//pos = is_pseudo_sorted(&twix->a);
-	//if (pos)
-		//balance(twix, pos);
-//}
 
 void	inject_back(t_twix *twix)
 {
@@ -89,7 +76,6 @@ void	inject_back(t_twix *twix)
 /*	Implements execution of operations (e.g. ra, rr, ...) in accordance with 
 	the instruction listed in 'actions' array
 */
-
 static void	ps_push(t_twix *twix, int *actions)
 {
 	void	(*operation[6])(t_twix *);
