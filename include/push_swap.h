@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 18:35:48 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void		push_swap(t_twix *twix);
 int			*cheapest_push(t_stack *stack_a, t_stack *stack_b);
 int			sumup_array(int *rots, int len);
 void		clean(t_twix *twix);
+void		empty_stack(t_twix *twix);
+void		inject_back(t_twix *twix);
 
 //lis
 t_int_array	*lis(t_stack *stack);
@@ -105,5 +107,7 @@ t_int_array	*lis(t_stack *stack);
 int			is_sorted(t_node *start);
 t_node		*is_pseudo_sorted(t_stack *stack);
 t_node		*min_element_in_stack(t_stack *stack);
+void		three_sort(t_twix *twix);
+void		mini_sort(t_twix *twix);
 
 #endif

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   empty_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 09:52:14 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 18:34:48 by akeryan          ###   ########.fr       */
+/*   Created: 2023/10/31 16:55:59 by akeryan           #+#    #+#             */
+/*   Updated: 2023/10/31 16:56:02 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	main(int argc, char *argv[])
+void	empty_stack(t_twix *twix)
 {
-	t_twix	twix;
+	int	len;
 
-	init_twix(&twix);
-	parsing(argc, argv, &twix.a);
-	push_swap(&twix);
-	free_stack(&twix.a);
-	return (0);
+	len = twix->a.length;
+	while (len > 3)
+	{
+		pb(twix);
+		len--;
+	}
 }

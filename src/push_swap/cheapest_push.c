@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:42:56 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/10/31 17:54:24 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static int	*rot_ops(int loc_a, int loc_b, int len_a, int len_b)
 {
 	int	*rotations;
 
-	rotations = (int *)malloc(6 * sizeof(int));
+	rotations = (int *)ft_calloc(6, sizeof(int));
 	check_allocation(rotations);
 	if (loc_a <= len_a - loc_a + 1)
 		rotations[2] = loc_a;
