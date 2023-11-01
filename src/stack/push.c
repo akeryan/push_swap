@@ -6,11 +6,13 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:17:47 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/11/01 07:45:45 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+static void	push_foo(t_stack *stack, t_node *new_node);
 
 // pushes element 'value' on top of 'stack'
 void	push(t_stack *stack, int value)
@@ -28,7 +30,7 @@ void	push(t_stack *stack, int value)
 	update_positions(stack);
 }
 
-void	push_foo(t_stack *stack, t_node *new_node)
+static void	push_foo(t_stack *stack, t_node *new_node)
 {
 	if (stack->top)
 	{

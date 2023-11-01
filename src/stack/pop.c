@@ -6,11 +6,13 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:18:18 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/11/01 07:46:49 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+static void	pop_foo(t_stack *stack);
 
 // pops and returns the value from the top node of the 'stack'
 int	pop(t_stack *stack)
@@ -28,7 +30,7 @@ int	pop(t_stack *stack)
 	return (value);
 }
 
-void	pop_foo(t_stack *stack)
+static void	pop_foo(t_stack *stack)
 {
 	t_node	*temp;
 

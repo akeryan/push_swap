@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:52:50 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/11/01 08:14:46 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	parsing(int argc, char **argv, t_stack *a)
 
 	if (!a)
 	{
-		fprintf(stderr, "Error - parsing(): stack is NULL\n");
+		fprintf(stderr, "Error\n");
 		exit(0);
 	}
 	if (argc < 2)
@@ -33,7 +33,7 @@ void	parsing(int argc, char **argv, t_stack *a)
 		arg = ft_split(argv[i--], ' ');
 		if (!*arg)
 		{
-			fprintf(stderr, "Error - parsing(): input is empty\n");
+			fprintf(stderr, "Error\n");
 			exit(0);
 		}
 		check_and_push(arg, a);

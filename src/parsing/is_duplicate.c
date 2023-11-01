@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 12:27:53 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 08:34:12 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/11/01 09:32:58 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_duplicate(t_stack *stack, int a)
 
 	if (!stack)
 	{
-		printf("Error - is_duplicates(): stack is NULL\n");
+		printf("Error\n");
 		exit(0);
 	}
 	if (!stack->top)

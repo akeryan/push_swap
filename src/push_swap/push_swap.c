@@ -6,13 +6,16 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:53:08 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 18:41:58 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/11/01 07:37:25 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
 static void		ps_push(t_twix *twix, int *actions);
+static void		inject_back(t_twix *twix);
+static void		mini_sort(t_twix *twix);
+static void		three_sort(t_twix *twix);
 
 //manages the whole process of the push_swap program
 void	push_swap(t_twix *twix)
@@ -35,7 +38,7 @@ void	push_swap(t_twix *twix)
 		balance(twix, min);
 }
 
-void	mini_sort(t_twix *twix)
+static void	mini_sort(t_twix *twix)
 {
 	if (twix->a.length == 1)
 		return ;
@@ -50,7 +53,7 @@ void	mini_sort(t_twix *twix)
 }
 
 // sorting algorithm for input of length 3
-void	three_sort(t_twix *twix)
+static void	three_sort(t_twix *twix)
 {
 	t_node	*temp;
 
@@ -61,7 +64,7 @@ void	three_sort(t_twix *twix)
 	balance(twix, is_pseudo_sorted(&twix->a));
 }
 
-void	inject_back(t_twix *twix)
+static void	inject_back(t_twix *twix)
 {
 	int	*rots;
 

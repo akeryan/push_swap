@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:51:45 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/31 19:19:31 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/11/01 07:52:21 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,13 @@ int			is_duplicate(t_stack *stack, int a);
 //stack.c
 void		init_stack(t_stack *stack);
 t_node		*malloc_node(void);
-void		print_stack(t_stack *stack);
 void		push(t_stack *stack, int value);
-void		push_foo(t_stack *stack, t_node *new_node);
 int			pop(t_stack *stack);
-int			peek(t_stack *stack);
 void		update_positions(t_stack *stack);
 void		balance(t_twix *twix, t_node *foo);
-void		pop_foo(t_stack *stack);
 void		free_stack(t_stack *stack);
-void		stack_to_array(t_stack *stack, int *array);
 
-//t_twix
+//twix
 void		init_twix(t_twix *twix);
 void		sa(t_twix *twix);
 void		sb(t_twix *twix);
@@ -96,18 +91,11 @@ int			max(int a, int b);
 void		push_swap(t_twix *twix);
 int			*cheapest_push(t_stack *stack_a, t_stack *stack_b);
 int			sumup_array(int *rots, int len);
-void		clean(t_twix *twix);
 void		empty_stack(t_twix *twix);
-void		inject_back(t_twix *twix);
-
-//lis
-t_int_array	*lis(t_stack *stack);
 
 //sorting
 int			is_sorted(t_node *start);
 t_node		*is_pseudo_sorted(t_stack *stack);
 t_node		*min_element_in_stack(t_stack *stack);
-void		three_sort(t_twix *twix);
-void		mini_sort(t_twix *twix);
 
 #endif

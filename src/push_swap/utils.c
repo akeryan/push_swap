@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:55:05 by akeryan           #+#    #+#             */
-/*   Updated: 2023/10/30 19:22:27 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/11/01 10:05:03 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ size_t	my_strlen(const char *str)
 		str++;
 	}
 	if (!ft_isdigit(*str))
-		len--;
+	{
+		if (len == 1)
+			len--;
+	}
 	len += ft_strlen(str);
 	return (len);
 }
