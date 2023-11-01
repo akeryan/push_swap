@@ -1,3 +1,0 @@
-"leave_three_elements_approach"
-
-Since I have encountered numerous problems with other approaches, I decided to go back to the basics and try to implement the algorithm described in a youtube video by a guy from 21-school. The essence of the approach is the following: Push all the elements from stack_a to stack_b except the last three elements. Sort the three elements out and then push back the elements from stack_b back to stack_a in there corresponding position, so that in the end we had a sorted list in an ascending order..
