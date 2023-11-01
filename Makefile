@@ -6,7 +6,7 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 09:55:14 by akeryan           #+#    #+#              #
-#    Updated: 2023/10/31 18:44:42 by akeryan          ###   ########.fr        #
+#    Updated: 2023/11/01 21:58:31 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ STACK = $(BUILD_DIR)/stack
 DIR_LIST = $(BUILD_DIR) $(MOVES_DIR) $(PARSING_DIR) $(PUSH_SWAP_DIR) $(SORT) $(STACK)
 BIN_DIR = bin
 LIBFT_DIR = libft
-FLAGS = -g -Wall -Wextra -Werror -fsanitize=address
+FLAGS = -Wall -Wextra -Werror
 PUSH_SWAP_H = include/$(NAME).h
 
 #List of source files
