@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:53:08 by akeryan           #+#    #+#             */
-/*   Updated: 2023/11/01 07:37:25 by akeryan          ###   ########.fr       */
+/*   Updated: 2023/11/02 10:31:45 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	push_swap(t_twix *twix)
 {
 	t_node	*min;
 
-	if (twix->a.length < 3)
-		return (mini_sort(twix));
+	if (twix->a.length <= 3)
+		mini_sort(twix);
 	min = is_pseudo_sorted(&twix->a);
 	if (min)
 	{
@@ -31,7 +31,6 @@ void	push_swap(t_twix *twix)
 		return ;
 	}
 	empty_stack(twix);
-	three_sort(twix);
 	inject_back(twix);
 	min = is_pseudo_sorted(&twix->a);
 	if (min)
@@ -50,6 +49,7 @@ static void	mini_sort(t_twix *twix)
 			return ;
 		}
 	}
+	three_sort(twix);
 }
 
 // sorting algorithm for input of length 3
